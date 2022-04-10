@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "../../layouts/layout";
 
-const Blog = () => {
+const BlogPage = () => {
     return(
         <Layout>
 
@@ -9,4 +9,4 @@ const Blog = () => {
     )
 }
 
-export default Blog
+export default BlogPage

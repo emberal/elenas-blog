@@ -13,11 +13,11 @@ const buttonText = {
     textAlign: "center",
 }
 
-const HeaderButton = ({buttonStyle, text}) => {
+const HeaderButton = ({buttonStyle, link}) => {
     return(
         <div style={buttonBox}>
             <div style={buttonStyle}></div>
-            <div style={buttonText}>{text}</div>
+            <div style={buttonText}>{link}</div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "../layouts/layout";
 
-const Gallery = () => {
+const ContactMe = () => {
     return(
         <Layout>
 
@@ -9,4 +9,4 @@ const Gallery = () => {
     )
 }
 
-export default Gallery
+export default ContactMe

@@ -1,5 +1,6 @@
 import * as React from "react";
 import HeaderButton from "./headerButton";
+import {Link} from "gatsby";
 
 const header = {
     fontFamily: "sans-serif",
@@ -52,16 +53,28 @@ const contactMe = {
     boxShadow: "1px 4px 4px",
 }
 
+const link = {
+    color: "white",
+}
+
 const Header = () => {
     return(
         <header style={header}>
             <div style={headline}>Elena</div>
 
             <div style={buttons}>
-                <HeaderButton buttonStyle={contactMe} text={"Contact me"}></HeaderButton>
-                <HeaderButton buttonStyle={blog} text={"Blog"}></HeaderButton>
-                <HeaderButton buttonStyle={gallery} text={"Gallery"}></HeaderButton>
-                <HeaderButton buttonStyle={home} text={"Home"}></HeaderButton>
+                <HeaderButton buttonStyle={contactMe} link={
+                    <Link style={link} to={"/contact-me"}>Contact me</Link>}>
+                </HeaderButton>
+                <HeaderButton buttonStyle={blog} link={
+                    <Link style={link} to={"/blog"}>Blog</Link>}>
+                </HeaderButton>
+                <HeaderButton buttonStyle={gallery} link={
+                    <Link style={link} to={"/gallery"}>Gallery</Link>}>
+                </HeaderButton>
+                <HeaderButton buttonStyle={home} link={
+                    <Link style={link} to={"/"}>Home</Link>}>
+                </HeaderButton>
             </div>
         </header>
     )
