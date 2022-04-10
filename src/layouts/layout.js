@@ -4,7 +4,11 @@ import Footer from "./footer";
 import Sidebar from "./sidebar";
 import Page from "./page";
 
-const Layout = ({title, backgroundColor, homePageColor, children}) => {
+const backgroundColor = {
+    background: "#3D3D3D",
+}
+
+const Layout = ({title, homePageColor, children}) => {
     return(
         <body style={backgroundColor}>
             <Page title={title} children={children}></Page>

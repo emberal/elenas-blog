@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Elenas foodblog`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.yourdomain.tld` //TODO Add domain
   },
     plugins: [
       "gatsby-plugin-mdx",
@@ -10,8 +10,8 @@ module.exports = {
       {
         resolve: 'gatsby-source-filesystem',
         options: {
-            name: "pages",
-            path: "./src/pages/"
+            name: "mdx",
+            path: `${__dirname}/mdx`,
         },
       __key: "pages"
       },

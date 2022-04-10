@@ -2,17 +2,11 @@ import * as React from "react"
 import Layout from "../layouts/layout";
 import {StaticImage} from "gatsby-plugin-image";
 
-const backgroundColor = {
-    background: "#3D3D3D",
-}
 const homePageColor = {
     background: "#215A7A"
 }
 const galleryPageColor = { //TODO move to correct file
     background: "#217A3F"
-}
-const blogPageColor = {
-    background: "#aa6523"
 }
 const contactMePageColor = {
     background: "#48217A"
@@ -45,7 +39,7 @@ const textPosition = {
 
 const IndexPage = () => {
     return (
-        <Layout title={"About me"} backgroundColor={backgroundColor} homePageColor={homePageColor} children={
+        <Layout title={"About me"} homePageColor={homePageColor} children={
             <div style={aboutMe}>
                 <div style={aboutMeText}>
                     <div style={aboutMePic}>

@@ -7,19 +7,19 @@ const header = {
     background: "#693B7E",
     position: "absolute",
     left: 0, top: 0,
-    height: "100px", width: "100%",
+    height: "80px", width: "100%",
     boxShadow: "0 3px 3px",
 }
 const headline = {
     color: "white",
     fontSize: "40px",
     position: "absolute",
-    top: "20px",
+    top: "10px",
     left: "25%",
 }
 const buttons = {
     position: "relative",
-    top: 0,
+    top: "-10px",
     float: "right",
     right: "25%",
     height: "fit-content", width: "fit-content",
@@ -60,7 +60,7 @@ const link = {
 const Header = () => {
     return(
         <header style={header}>
-            <div style={headline}>Elena</div>
+            <div style={headline}>Elena's blog</div>
 
             <div style={buttons}>
                 <HeaderButton buttonStyle={contactMe} link={
