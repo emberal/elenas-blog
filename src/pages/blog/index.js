@@ -8,20 +8,18 @@ const Blog = ({data}) => {
     return(
         <Layout homePageColor={blogPageColor} title={"Blog"} children={
             <div>
-                <div>
-                    {
-                        data.allMdx.nodes.map(node => (
-                            <article key={node.id}>
-                                <Card
-                                    title={node.frontmatter.title}
-                                    date={node.frontmatter.date}
-                                    body={node.body}
-                                    link={node.slug}
-                                ></Card>
-                            </article>
-                        ))
-                    }
-                </div>
+                {
+                    data.allMdx.nodes.map(node => (
+                        <article key={node.id}>
+                            <Card
+                                title={node.frontmatter.title}
+                                date={node.frontmatter.date}
+                                body={node.body}
+                                link={node.slug}
+                            ></Card>
+                        </article>
+                    ))
+                }
             </div>
         }>
         </Layout>
