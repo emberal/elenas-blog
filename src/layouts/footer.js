@@ -2,8 +2,9 @@ import * as React from "react";
 
 const footer = {
     fontFamily: "sans-serif",
-    paddingTop: "5px",
-    paddingBottom: "5px",
+    position: "absolute",
+    bottom: 0, left: 0,
+    width: "100%",
     textAlign: "center",
     backgroundColor: "#3D3D3D",
     color: "white",

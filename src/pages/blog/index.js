@@ -17,8 +17,7 @@ const Blog = ({data}) => {
                                     date={node.frontmatter.date}
                                     body={node.body}
                                     link={node.slug}
-                                >
-                                </Card>
+                                ></Card>
                             </article>
                         ))
                     }

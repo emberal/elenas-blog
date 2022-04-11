@@ -19,7 +19,7 @@ const cardText = {
 const cardPic = {
     position: "relative",
     float: "right",
-    width: "250px",
+    width: "400px",
     paddingTop: "20px",
     paddingLeft: "25px",
     right: "10px",

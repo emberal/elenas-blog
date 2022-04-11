@@ -1,17 +1,22 @@
 import * as React from "react";
+import Footer from "./footer";
 
 const pageStyle = {
     fontFamily: "sans-serif",
     background: "white",
     position: "relative",
     left: "25%",
-    paddingTop: "100px",
-    paddingBottom: "50px",
-    width: "50%", height: "100%", //TODO relative size based on the size of the screen
+    width: "50%", //TODO relative size based on the size of the screen
+    minHeight: "100vh",
 }
 const titleStyle = {
+    paddingTop: "100px",
     position: "relative",
-    left: "7.5%", top: "5%"
+    left: "7.5%",
+}
+
+const foot = {
+    paddingBottom: "50px",
 }
 
 const Page = ({title, children}) => {
@@ -19,7 +24,10 @@ const Page = ({title, children}) => {
         <main style={pageStyle}>
             <title>{title}</title>
             <h1 style={titleStyle}>{title}</h1>
-            {children}
+            <div style={foot}>
+                {children}
+            </div>
+            <Footer></Footer>
         </main>
     )
 }
