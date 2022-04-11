@@ -1,16 +1,8 @@
 import * as React from "react"
 import Layout from "../layouts/layout";
 import {StaticImage} from "gatsby-plugin-image";
+import {homePageColor} from "../stylesheets/Colors.module.css"
 
-const homePageColor = {
-    background: "#215A7A"
-}
-const galleryPageColor = { //TODO move to correct file
-    background: "#217A3F"
-}
-const contactMePageColor = {
-    background: "#48217A"
-}
 const aboutMe = {
     position: "relative",
     left: "5%",

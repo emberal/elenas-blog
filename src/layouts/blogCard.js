@@ -1,20 +1,20 @@
 import * as React from "react";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import {Link} from "gatsby";
 
 const card = {
     position: "relative",
     left: "7.5%",
-    width: "85%", height: "450px",
+    width: "85%", height: "fit-content",
     paddingBottom: "10px",
     border: "solid grey",
     marginBottom: "50px",
+    overflow: "auto", //Makes sure the pic is within the <div>
 }
 const cardText = {
-    border: "solid grey",
-    position: "absolute",
-    left: "2.5%",
-    width: "95%", height: "fit-content",
+    paddingLeft: "20px",
+    paddingRight: "20px",
 }
 const cardPic = {
     position: "relative",
@@ -24,29 +24,26 @@ const cardPic = {
     paddingLeft: "25px",
     right: "10px",
 }
-const textPosition = {
-    position: "relative",
-    left: "5px",
-}
-const headline = {
-    listStyle: "none",
-    display: "flex",
-    paddingLeft: 0,
-}
 const dateStyle = {
-    paddingTop: "12px",
+    paddingTop: 0,
     position: "relative",
     float: "right",
+    paddingRight: "20px",
 }
 
-const Card = ({title, date, body, pictures}) => {
+const Card = ({title, date, body, pic, picAlt, link}) => {
     return(//TODO pictures
         <article style={card}>
-            <ul style={headline}>
-                <li><h2>{title}</h2></li>
-                <li style={dateStyle}><p>{date}</p></li>
-            </ul>
-            <MDXRenderer children={body}/>
+            <div style={cardPic}>
+                <p style={dateStyle}>{date}</p>
+                <GatsbyImage  alt={picAlt} image={getImage(pic)}/>
+            </div>
+            <div style={cardText}>
+                <h2>
+                    <Link to={link}>{title}</Link>
+                </h2>
+                <MDXRenderer children={body}/>
+            </div>
         </article>
     )
 }

@@ -2,10 +2,7 @@ import * as React from "react";
 import Layout from "../../layouts/layout";
 import {graphql} from "gatsby";
 import Card from "../../layouts/blogCard";
-
-const blogPageColor = {
-    background: "#aa6523"
-}
+import {blogPageColor} from "../../stylesheets/Colors.module.css"
 
 const Blog = ({data}) => {
     return(
@@ -18,7 +15,9 @@ const Blog = ({data}) => {
                                 <Card
                                     title={node.frontmatter.title}
                                     date={node.frontmatter.date}
-                                    body={node.body}>
+                                    body={node.body}
+                                    link={node.slug}
+                                >
                                 </Card>
                             </article>
                         ))
@@ -39,6 +38,7 @@ query {
         title
       }
       body
+      slug
       id
     }
   }

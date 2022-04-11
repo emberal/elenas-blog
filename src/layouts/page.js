@@ -6,6 +6,7 @@ const pageStyle = {
     position: "relative",
     left: "25%",
     paddingTop: "100px",
+    paddingBottom: "50px",
     width: "50%", height: "100%", //TODO relative size based on the size of the screen
 }
 const titleStyle = {

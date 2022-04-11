@@ -1,9 +1,15 @@
 import * as React from "react";
-import {sidebar} from "/src/stylesheets/Sidebar.module.css"
+
+const sidebar = {
+    position: "absolute",
+    left: 0, top: 0,
+    height: "100%", width: "50px",
+    boxShadow: "0 3px 3px",
+}
 
 const Sidebar = ({color}) => {
     return(
-        <div className={sidebar} style={color}></div>
+        <div style={sidebar} className={color}></div>
     )
 }
 
