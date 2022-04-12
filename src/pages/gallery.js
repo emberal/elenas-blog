@@ -4,19 +4,23 @@ import {galleryPageColor} from "../stylesheets/Colors.module.css"
 import {graphql} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
-const image = {
-    maxWidth: "400px",
-    margin: "50px",
+const image = { //TODO fix when rezising
+    maxWidth: "40%",
+    marginRight: "60px",
+    marginBottom: "50px",
     position: "relative",
-    left: "10%",
+    left: "7.5%",
     float: "left",
 }
 
-const Gallery = ({data}) => {
-    return(//TODO positioning, titles, dates and links
-        <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
+const galleryStyle = {
+    overflow: "auto"
+}
 
-            <div>
+const Gallery = ({data}) => {
+    return(//TODO positioning, titles, dates and links https://medium.com/@kripod/building-highly-performant-masonry-layouts-with-gatsby-js-54115acc3e72
+        <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
+            <div style={galleryStyle}>
                 {
                     data.allMdx.nodes.map( node => (
                         <div key={node.frontmatter.hero_image.childImageSharp.id}>
@@ -29,7 +33,6 @@ const Gallery = ({data}) => {
                 }
             </div>
         }>
-
         </Layout>
     )
 }
