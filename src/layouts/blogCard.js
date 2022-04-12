@@ -31,6 +31,10 @@ const dateStyle = {
     paddingRight: "20px",
 }
 
+const linkStyle = {
+    color: "#693B7E"
+}
+
 const Card = ({title, date, body, pic, picAlt, link}) => {
     return(//TODO pictures
         <article style={card}>
@@ -40,7 +44,7 @@ const Card = ({title, date, body, pic, picAlt, link}) => {
             </div>
             <div style={cardText}>
                 <h2>
-                    <Link to={link}>{title}</Link>
+                    <Link style={linkStyle} to={link}>{title}</Link>
                 </h2>
                 <MDXRenderer children={body}/>
             </div>

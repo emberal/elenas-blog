@@ -4,7 +4,7 @@ const buttonBox = {
     position: "relative",
     float: "right",
     height: "fit-content", width: "100px",
-    marginTop: "15px",
+    marginTop: "5px",
 }
 
 const buttonText = {
@@ -16,7 +16,7 @@ const buttonText = {
 const HeaderButton = ({buttonStyle, link}) => {
     return(
         <div style={buttonBox}>
-            <div style={buttonStyle}></div>
+            <button style={buttonStyle}></button>
             <div style={buttonText}>{link}</div>
         </div>
     )

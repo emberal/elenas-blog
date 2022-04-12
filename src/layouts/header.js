@@ -19,7 +19,6 @@ const headline = {
 }
 const buttons = {
     position: "relative",
-    top: "-10px",
     float: "right",
     right: "25%",
     height: "fit-content", width: "fit-content",
@@ -27,30 +26,38 @@ const buttons = {
 const home = {
     background: "#215A7A",
     position: "relative",
+    left: "29px",
     height: "42px", width: "42px",
     margin: "auto auto 5px",
     boxShadow: "1px 4px 4px inset",
+    border: "none"
 }
 const gallery = {
     background: "#217A3F",
     position: "relative",
+    left: "29px",
     height: "42px", width: "42px",
     margin: "auto auto 5px",
     boxShadow: "1px 4px 4px",
+    border: "none"
 }
 const blog = {
     background: "#aa6523",
     position: "relative",
+    left: "29px",
     height: "42px", width: "42px",
     margin: "auto auto 5px",
     boxShadow: "1px 4px 4px",
+    border: "none"
 }
 const contactMe = {
     background: "#48217A",
     position: "relative",
+    left: "29px",
     height: "42px", width: "42px",
     margin: "auto auto 5px",
     boxShadow: "1px 4px 4px",
+    border: "none"
 }
 
 const link = {

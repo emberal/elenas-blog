@@ -14,8 +14,7 @@ const titleStyle = {
     position: "relative",
     left: "7.5%",
 }
-
-const foot = {
+const paddingBottom = {
     paddingBottom: "50px",
 }
 
@@ -24,10 +23,10 @@ const Page = ({title, children}) => {
         <main style={pageStyle}>
             <title>{title}</title>
             <h1 style={titleStyle}>{title}</h1>
-            <div style={foot}>
+            <div style={paddingBottom}>
                 {children}
             </div>
-            <Footer></Footer>
+            <Footer>{/*TODO add info*/}</Footer>
         </main>
     )
 }

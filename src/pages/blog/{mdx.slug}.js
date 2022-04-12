@@ -8,7 +8,6 @@ const BlogPage = ({data}) => {
     return(
         <Layout title={data.mdx.frontmatter.title} homePageColor={blogPageColor} children={
             <Card
-                title={data.mdx.frontmatter.title}
                 date={data.mdx.frontmatter.date}
                 body={data.mdx.body}
                 pic={data.mdx.frontmatter.hero_image.childImageSharp.gatsbyImageData}
@@ -24,7 +23,6 @@ query($id: String) {
   mdx(id: {eq: $id}) {
     frontmatter {
       hero_image {
-        id
         childImageSharp {
           gatsbyImageData
         }
