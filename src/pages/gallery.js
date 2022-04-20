@@ -23,10 +23,10 @@ const Gallery = ({data}) => {
             <div style={galleryStyle}>
                 {
                     data.allMdx.nodes.map( node => (
-                        <div key={node.frontmatter.hero_image.childImageSharp.id}>
+                        <div key={node.frontmatter.image.childImageSharp.id}>
                             <GatsbyImage style={image}
-                                image={getImage(node.frontmatter.hero_image.childImageSharp.gatsbyImageData)}
-                                alt={node.frontmatter.hero_image_alt}>
+                                image={getImage(node.frontmatter.image.childImageSharp.gatsbyImageData)}
+                                alt={node.frontmatter.image_alt}>
                             </GatsbyImage>
                         </div>
                     ))
@@ -42,13 +42,13 @@ query {
   allMdx(sort: {fields: frontmatter___date, order: DESC}) {
     nodes {
       frontmatter {
-        hero_image {
+        image {
           childImageSharp {
             gatsbyImageData
             id
           }
         }
-        hero_image_alt
+        image_alt
         title
         date(formatString: "D MMMM, YYYY")
       }

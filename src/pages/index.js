@@ -1,6 +1,6 @@
 import * as React from "react"
 import Layout from "../layouts/layout";
-import Card from "../layouts/blogCard";
+import MiniCard from "../layouts/blogCard/miniCard";
 import {StaticImage} from "gatsby-plugin-image";
 import {homePageColor} from "../stylesheets/Colors.module.css"
 import {graphql} from "gatsby";
@@ -10,6 +10,7 @@ const aboutMe = {
     left: "5%",
     width: "90%", height: "450px",
     paddingTop: "30px",
+    overflow: "auto"
 }
 const aboutMeText = {
     border: "solid grey",
@@ -33,13 +34,14 @@ const textPosition = {
 const titleStyle = {
     position: "relative",
     left: "7.5%",
+    float: "below"
 }
 
 const IndexPage = ({data}) => {
     return (
         <Layout title={"About me"} homePageColor={homePageColor} children={
             <div>
-                <div style={aboutMe}>
+                <article style={aboutMe}>
                     <div style={aboutMeText}>
                         <div style={aboutMePic}>
                             <StaticImage src={"../images/ElenaGoddess.jpg"} alt={"A beautiful woman"}/>
@@ -67,17 +69,17 @@ const IndexPage = ({data}) => {
                             </p>
                         </div>
                     </div>
-                </div>
+                </article>
                 <h2 style={titleStyle}>Latest blogposts</h2>
                 {
                     data.allMdx.nodes.map( node => (
                         <article key={node.id}>
-                            <Card
+                            <MiniCard
                                 title={node.frontmatter.title}
                                 date={node.frontmatter.date}
                                 link={node.slug}
-                                body={node.body}>
-                            </Card>
+                                intro={node.frontmatter.introduction}>
+                            </MiniCard>
                         </article>
                     ))
                 }
@@ -94,8 +96,8 @@ query {
       frontmatter {
         date(formatString: "D MMMM, YYYY")
         title
+        introduction
       }
-      body
       slug
       id
     }

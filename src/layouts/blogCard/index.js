@@ -1,7 +1,5 @@
 import * as React from "react";
-import {MDXRenderer} from "gatsby-plugin-mdx";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
-import {Link} from "gatsby";
 
 const card = {
     position: "relative",
@@ -31,11 +29,7 @@ const dateStyle = {
     paddingRight: "20px",
 }
 
-const linkStyle = {
-    color: "#693B7E"
-}
-
-const Card = ({title, date, body, pic, picAlt, link}) => {
+const CardLayout = ({date, pic, picAlt, children}) => {
     return(//TODO pictures
         <article style={card}>
             <div style={cardPic}>
@@ -43,13 +37,10 @@ const Card = ({title, date, body, pic, picAlt, link}) => {
                 <GatsbyImage  alt={picAlt} image={getImage(pic)}/>
             </div>
             <div style={cardText}>
-                <h2>
-                    <Link style={linkStyle} to={link}>{title}</Link>
-                </h2>
-                <MDXRenderer children={body}/>
+                {children}
             </div>
         </article>
-    )
+    );
 }
 
-export default Card
+export default CardLayout

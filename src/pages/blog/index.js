@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "../../layouts/layout";
 import {graphql} from "gatsby";
-import Card from "../../layouts/blogCard";
+import MiniCard from "../../layouts/blogCard/miniCard";
 import {blogPageColor} from "../../stylesheets/Colors.module.css"
 
 const Blog = ({data}) => {
@@ -11,12 +11,13 @@ const Blog = ({data}) => {
                 {
                     data.allMdx.nodes.map(node => (
                         <article key={node.id}>
-                            <Card
+                            <MiniCard
                                 title={node.frontmatter.title}
                                 date={node.frontmatter.date}
-                                body={node.body}
-                                link={node.slug}>
-                            </Card>
+                                intro={node.frontmatter.introduction}
+                                link={node.slug}
+                            >
+                            </MiniCard>
                         </article>
                     ))
                 }
@@ -33,6 +34,7 @@ query {
       frontmatter {
         date(formatString: "D MMMM, YYYY")
         title
+        introduction
       }
       body
       slug

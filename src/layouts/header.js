@@ -62,12 +62,17 @@ const contactMe = {
 
 const link = {
     color: "white",
+    textDecoration: "none"
 }
 
 const Header = () => {
     return(
         <header style={header}>
-            <div style={headline}>Elena's blog</div>
+            <div style={headline}>
+                <Link style={link} to={"/"}>
+                    Elena's blog
+                </Link>
+            </div>
 
             <div style={buttons}>
                 <HeaderButton buttonStyle={contactMe} link={
