@@ -14,6 +14,9 @@ const center = {
     marginRight: "auto",
     width: "fit-content",
 }
+const left = {
+    float: "left",
+}
 const right = {
     float: "right",
 }
@@ -24,6 +27,7 @@ const linkStyle = {
 const Footer = () => {
     return(
         <div style={footer}>
+            <p style={left}>Source code on <a style={linkStyle} href={"https://github.com/h600878/elenas-blog"}>Github</a></p>
             <p style={right}>Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>Gatsby.js </Link>
                 and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a></p>
             <p style={center}>Made with &#9829; by Martin</p>

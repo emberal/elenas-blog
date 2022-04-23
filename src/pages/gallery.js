@@ -46,10 +46,10 @@ query {
       id
     }
   }
-  allContentfulBlogPost(sort: {fields: publishedDate, order: DESC}) {
+  allContentfulBlogPost(sort: {fields: updatedAt, order: DESC}) {
     nodes {
       title
-      publishedDate(formatString: "Do MMMM YYYY, H:mm")
+      updatedAt(formatString: "Do MMMM YYYY, H:mm")
       body {
         childMarkdownRemark {
           timeToRead

@@ -8,7 +8,7 @@ const BlogPage = ({data}) => {
     return(
         <Layout title={data.contentfulBlogPost.title} homePageColor={blogPageColor} children={
             <Card
-                date={data.contentfulBlogPost.publishedDate}
+                date={data.contentfulBlogPost.updatedAt}
                 body={<div className="body"
                            dangerouslySetInnerHTML={{
                                __html: data.contentfulBlogPost.body.childMarkdownRemark.html,
@@ -30,7 +30,7 @@ query($id: String) {
       }
     }
     title
-    publishedDate(formatString: "Do MMMM YYYY, H:mm")
+    updatedAt(formatString: "Do MMMM YYYY, H:mm")
   }
 }
 `

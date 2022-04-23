@@ -13,7 +13,7 @@ const Blog = ({data}) => {
                         <article key={node.id}>
                             <MiniCard
                                 title={node.title}
-                                date={node.publishedDate}
+                                date={node.updatedAt}
                                 link={node.slug}
                                 timeToRead={node.body.childMarkdownRemark.timeToRead}
                             />
@@ -28,10 +28,10 @@ const Blog = ({data}) => {
 
 export const query = graphql `
 query {
-  allContentfulBlogPost(sort: {fields: publishedDate, order: DESC}) {
+  allContentfulBlogPost(sort: {fields: updatedAt, order: DESC}) {
     nodes {
       title
-      publishedDate(formatString: "Do MMMM YYYY, H:mm")
+      updatedAt(formatString: "Do MMMM YYYY, H:mm")
       id
       slug
       body {
