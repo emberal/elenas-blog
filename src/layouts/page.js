@@ -5,8 +5,8 @@ const pageStyle = {
     fontFamily: "sans-serif",
     background: "white",
     position: "relative",
-    left: "25%",
-    width: "50%", //TODO relative size based on the size of the screen
+    margin: "auto",
+    width: "1200px", //TODO relative size based on the size of the screen
     minHeight: "100vh",
 }
 const titleStyle = {

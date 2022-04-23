@@ -59,8 +59,7 @@ const contactMe = {
     boxShadow: "1px 4px 4px",
     border: "none"
 }
-
-const link = {
+const linkStyle = {
     color: "white",
     textDecoration: "none"
 }
@@ -69,24 +68,16 @@ const Header = () => {
     return(
         <header style={header}>
             <div style={headline}>
-                <Link style={link} to={"/"}>
+                <Link style={linkStyle} to={"/"}>
                     Elena's blog
                 </Link>
             </div>
 
             <div style={buttons}>
-                <HeaderButton buttonStyle={contactMe} link={
-                    <Link style={link} to={"/contact-me"}>Contact me</Link>}>
-                </HeaderButton>
-                <HeaderButton buttonStyle={blog} link={
-                    <Link style={link} to={"/blog"}>Blog</Link>}>
-                </HeaderButton>
-                <HeaderButton buttonStyle={gallery} link={
-                    <Link style={link} to={"/gallery"}>Gallery</Link>}>
-                </HeaderButton>
-                <HeaderButton buttonStyle={home} link={
-                    <Link style={link} to={"/"}>Home</Link>}>
-                </HeaderButton>
+                <HeaderButton buttonStyle={contactMe} link={ <Link style={linkStyle} to={"/contact-me"}>Contact me</Link> }/>
+                <HeaderButton buttonStyle={blog} link={ <Link style={linkStyle} to={"/blog"}>Blog</Link> }/>
+                <HeaderButton buttonStyle={gallery} link={ <Link style={linkStyle} to={"/gallery"}>Gallery</Link> }/>
+                <HeaderButton buttonStyle={home} link={ <Link style={linkStyle} to={"/"}>Home</Link> }/>
             </div>
         </header>
     )

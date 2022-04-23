@@ -16,5 +16,12 @@ module.exports = {
       __key: "pages"
       },
       "gatsby-transformer-sharp",
+      {
+        resolve: "gatsby-source-contentful",
+        options: {
+          spaceId: `pt1mb8g11lc6`,
+          accessToken: `S5HdcMkviMvmdowmFmFhET5f3YZdnhfhfZBG8gQqfhs`,
+        }
+      }
     ]
 };

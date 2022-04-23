@@ -16,7 +16,7 @@ const buttonText = {
 const HeaderButton = ({buttonStyle, link}) => {
     return(
         <div style={buttonBox}>
-            <button style={buttonStyle}></button>
+            <button style={buttonStyle}>{/*TODO add text here!*/}</button>
             <div style={buttonText}>{link}</div>
         </div>
     )
