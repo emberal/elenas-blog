@@ -22,11 +22,11 @@ const Gallery = ({data}) => {
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
             <div style={galleryStyle}>
                 {
-                    data.allMdx.nodes.map( node => (
-                        <div key={node.frontmatter.image.childImageSharp.id}>
+                    data.allContentfulAsset.nodes.map( node => (
+                        <div key={node.id}>
                             <GatsbyImage style={image}
-                                image={getImage(node.frontmatter.image.childImageSharp.gatsbyImageData)}
-                                alt={node.frontmatter.image_alt}>
+                                image={getImage(node.gatsbyImageData)}
+                                alt={node.description}>
                             </GatsbyImage>
                         </div>
                     ))
@@ -39,20 +39,22 @@ const Gallery = ({data}) => {
 
 export const query = graphql `
 query {
-  allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+  allContentfulAsset {
     nodes {
-      frontmatter {
-        image {
-          childImageSharp {
-            gatsbyImageData
-            id
-          }
-        }
-        image_alt
-        title
-        date(formatString: "D MMMM, YYYY")
-      }
+      gatsbyImageData
+      description
       id
+    }
+  }
+  allContentfulBlogPost(sort: {fields: publishedDate, order: DESC}) {
+    nodes {
+      title
+      publishedDate(formatString: "Do MMMM YYYY, H:mm")
+      body {
+        childMarkdownRemark {
+          timeToRead
+        }
+      }
     }
   }
 }

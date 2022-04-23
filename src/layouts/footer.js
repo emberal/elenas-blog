@@ -24,7 +24,8 @@ const linkStyle = {
 const Footer = () => {
     return(
         <div style={footer}>
-            <p style={right}>Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>Gatsby.js</Link></p>
+            <p style={right}>Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>Gatsby.js </Link>
+                and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a></p>
             <p style={center}>Made with &#9829; by Martin</p>
         </div>
     )

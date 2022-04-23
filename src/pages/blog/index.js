@@ -1,44 +1,44 @@
 import * as React from "react";
 import Layout from "../../layouts/layout";
 import {graphql} from "gatsby";
-import MiniCard from "../../layouts/blogCard/miniCard";
 import {blogPageColor} from "../../stylesheets/Colors.module.css"
+import MiniCard from "../../layouts/blogCard/miniCard";
 
 const Blog = ({data}) => {
-    return(
+    return (
         <Layout homePageColor={blogPageColor} title={"Blog"} children={
             <div>
                 {
-                    data.allMdx.nodes.map(node => (
+                    data.allContentfulBlogPost.nodes.map( node => (
                         <article key={node.id}>
                             <MiniCard
-                                title={node.frontmatter.title}
-                                date={node.frontmatter.date}
-                                intro={node.frontmatter.introduction}
+                                title={node.title}
+                                date={node.publishedDate}
                                 link={node.slug}
-                            >
-                            </MiniCard>
+                                timeToRead={node.body.childMarkdownRemark.timeToRead}
+                            />
                         </article>
                     ))
                 }
             </div>
         }>
         </Layout>
-    )
+    );
 }
 
 export const query = graphql `
 query {
-  allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+  allContentfulBlogPost(sort: {fields: publishedDate, order: DESC}) {
     nodes {
-      frontmatter {
-        date(formatString: "D MMMM, YYYY")
-        title
-        introduction
-      }
-      body
-      slug
+      title
+      publishedDate(formatString: "Do MMMM YYYY, H:mm")
       id
+      slug
+      body {
+        childMarkdownRemark {
+          timeToRead
+        }
+      }
     }
   }
 }

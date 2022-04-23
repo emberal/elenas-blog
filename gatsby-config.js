@@ -4,18 +4,19 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld` //TODO Add domain
   },
     plugins: [
-      "gatsby-plugin-mdx",
       "gatsby-plugin-image",
       "gatsby-plugin-sharp",
       {
-        resolve: 'gatsby-source-filesystem',
+        resolve: `gatsby-transformer-remark`,
         options: {
-            name: "mdx",
-            path: `${__dirname}/mdx`,
-        },
-      __key: "pages"
+          // Footnotes mode (default: true)
+          footnotes: true,
+          // GitHub Flavored Markdown mode (default: true)
+          gfm: true,
+          // Plugins configs
+          plugins: [],
+        }
       },
-      "gatsby-transformer-sharp",
       {
         resolve: "gatsby-source-contentful",
         options: {

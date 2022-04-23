@@ -1,5 +1,4 @@
 import * as React from "react";
-import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
 const card = {
     position: "relative",
@@ -29,12 +28,12 @@ const dateStyle = {
     paddingRight: "20px",
 }
 
-const CardLayout = ({date, pic, picAlt, children}) => {
-    return(//TODO pictures
+const CardLayout = ({date, timeToRead, children}) => {
+    return(
         <article style={card}>
             <div style={cardPic}>
-                <p style={dateStyle}>{date}</p>
-                <GatsbyImage  alt={picAlt} image={getImage(pic)}/>
+                <p style={dateStyle}>Published: {date}</p>
+                <p>{timeToRead} minute read</p>
             </div>
             <div style={cardText}>
                 {children}

@@ -72,13 +72,13 @@ const IndexPage = ({data}) => {
                 </article>
                 <h2 style={titleStyle}>Latest blogposts</h2>
                 {
-                    data.allMdx.nodes.map( node => (
+                    data.allContentfulBlogPost.nodes.map( node => (
                         <article key={node.id}>
                             <MiniCard
-                                title={node.frontmatter.title}
-                                date={node.frontmatter.date}
-                                link={node.slug}
-                                intro={node.frontmatter.introduction}>
+                                title={node.title}
+                                date={node.publishedDate}
+                                link={"/blog/" + node.slug}
+                                timeToRead={node.body.childMarkdownRemark.timeToRead}>
                             </MiniCard>
                         </article>
                     ))
@@ -91,15 +91,17 @@ const IndexPage = ({data}) => {
 
 export const query = graphql `
 query {
-  allMdx(sort: {fields: frontmatter___date, order: DESC}, limit: 2) {
+  allContentfulBlogPost(sort: {fields: publishedDate, order: DESC}, limit: 2) {
     nodes {
-      frontmatter {
-        date(formatString: "D MMMM, YYYY")
-        title
-        introduction
-      }
-      slug
+      title
+      publishedDate(formatString: "Do MMMM YYYY, H:mm")
       id
+      slug
+      body {
+        childMarkdownRemark {
+          timeToRead
+        }
+      }
     }
   }
 }
