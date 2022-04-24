@@ -16,6 +16,14 @@ const Blog = ({data}) => {
                                 date={node.updatedAt}
                                 link={node.slug}
                                 timeToRead={node.body.childMarkdownRemark.timeToRead}
+                                intro={
+                                    <div className="introduction"
+                                        dangerouslySetInnerHTML={{
+                                        __html: node.introduction.childMarkdownRemark.html,
+                                        }}
+                                    />
+                                    //TODO add pic
+                                }
                             />
                         </article>
                     ))
@@ -37,6 +45,11 @@ query {
       body {
         childMarkdownRemark {
           timeToRead
+        }
+      }
+      introduction {
+        childMarkdownRemark {
+          html
         }
       }
     }

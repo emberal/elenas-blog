@@ -78,8 +78,16 @@ const IndexPage = ({data}) => {
                                 title={node.title}
                                 date={node.updatedAt}
                                 link={"/blog/" + node.slug}
-                                timeToRead={node.body.childMarkdownRemark.timeToRead}>
-                            </MiniCard>
+                                timeToRead={node.body.childMarkdownRemark.timeToRead}
+                                intro={
+                                    <div className="introduction"
+                                        dangerouslySetInnerHTML={{
+                                        __html: node.introduction.childMarkdownRemark.html,
+                                        }}
+                                    />
+                                }
+                                //TODO add pic
+                            />
                         </article>
                     ))
                 }
@@ -100,6 +108,11 @@ query {
       body {
         childMarkdownRemark {
           timeToRead
+        }
+      }
+      introduction {
+        childMarkdownRemark {
+          html
         }
       }
     }

@@ -10,6 +10,7 @@ const card = {
     overflow: "auto", //Makes sure the pic is within the <div>
 }
 const cardText = {
+    paddingTop: "15px",
     paddingLeft: "20px",
     paddingRight: "20px",
 }

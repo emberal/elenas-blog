@@ -1,3 +1,8 @@
+// Loads .env files
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Elenas foodblog`,
@@ -21,7 +26,7 @@ module.exports = {
         resolve: "gatsby-source-contentful",
         options: {
           spaceId: `pt1mb8g11lc6`,
-          accessToken: `S5HdcMkviMvmdowmFmFhET5f3YZdnhfhfZBG8gQqfhs`,
+          accessToken: process.env.API_KEY,
         }
       }
     ]

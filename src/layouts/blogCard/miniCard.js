@@ -1,12 +1,13 @@
 import * as React from "react";
 import CardLayout from "./index"
 import {Link} from "gatsby";
+import {GatsbyImage} from "gatsby-plugin-image";
 
 const linkStyle = {
     color: "#693B7E"
 }
 
-const MiniCard = ({title, date, intro, link, timeToRead}) => {
+const MiniCard = ({title, date, intro, link, timeToRead, pic, picAlt}) => {
     return(
         <CardLayout
             date={date}
@@ -17,7 +18,7 @@ const MiniCard = ({title, date, intro, link, timeToRead}) => {
                         <Link style={linkStyle} to={link}>{title}</Link>
                     </h2>
                     <p>{intro}</p>
-                    {/*TODO Add pic*/}
+                    <GatsbyImage image={pic} alt={picAlt}/>
                 </div>
             }>
         </CardLayout>

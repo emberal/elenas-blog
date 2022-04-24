@@ -39,7 +39,7 @@ const Gallery = ({data}) => {
 
 export const query = graphql `
 query {
-  allContentfulAsset {
+  allContentfulAsset(sort: {fields: updatedAt, order: DESC}) {
     nodes {
       gatsbyImageData
       description

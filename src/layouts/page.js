@@ -21,7 +21,7 @@ const paddingBottom = {
 const Page = ({title, children}) => {
     return(
         <main style={pageStyle}>
-            <title>{title}</title>
+            <title>{title + "|" + "Elena's blog"}</title>
             <h1 style={titleStyle}>{title}</h1>
             <div style={paddingBottom}>
                 {children}
