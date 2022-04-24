@@ -30,7 +30,7 @@ const home = {
     left: "29px",
     height: "42px", width: "42px",
     margin: "auto auto 5px",
-    boxShadow: "1px 4px 4px inset",
+    boxShadow: "1px 4px 4px" /*inset"*/,
     border: "none"
 }
 const gallery = {
@@ -78,7 +78,7 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div style={buttons}>
+            <nav style={buttons}>
                 <HeaderButton
                     buttonStyle={contactMe}
                     link={{
@@ -115,7 +115,7 @@ const Header = () => {
                     }}
                     icon={<StaticImage style={iconStyle} src={"../images/icons8-home-page-48.png"} alt={"Home-page icon"}/>}
                 />
-            </div>
+            </nav>
         </header>
     )
 }

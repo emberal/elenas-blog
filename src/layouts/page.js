@@ -15,7 +15,7 @@ const titleStyle = {
     left: "7.5%",
 }
 const paddingBottom = {
-    paddingBottom: "50px",
+    paddingBottom: "100px",
 }
 
 const Page = ({title, children}) => {

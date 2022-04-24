@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Link} from "gatsby";
+import {Link, navigate} from "gatsby";
 
 const buttonBox = {
     position: "relative",
@@ -12,15 +12,19 @@ const buttonText = {
     fontSize: "large",
     textAlign: "center",
 }
+const hidden = {
+    fontSize: 0,
+}
 
 const HeaderButton = ({buttonStyle, link, icon}) => {
     return(
         <div style={buttonBox}>
             <button type={"button"} style={buttonStyle} onClick={(e) => {
+                {/*TODO add clicking animation onClick*/}
                 e.preventDefault();
-                window.location.href="../" + link.link; //TODO use a faster method like <Link/>
+                navigate(link.link);
             }}>
-                {/*TODO add text here!*/}
+                <span style={hidden}>{link.title}</span>
                 {icon}
             </button>
             <div style={buttonText}>

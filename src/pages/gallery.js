@@ -32,24 +32,23 @@ const Gallery = ({data}) => {
                     ))
                 }
             </div>
-        }>
-        </Layout>
+        }/>
     )
 }
 
 export const query = graphql `
 query {
-  allContentfulAsset(sort: {fields: updatedAt, order: DESC}) {
+  allContentfulAsset(sort: {fields: createdAt, order: DESC}) {
     nodes {
       gatsbyImageData
       description
       id
     }
   }
-  allContentfulBlogPost(sort: {fields: updatedAt, order: DESC}) {
+  allContentfulBlogPost(sort: {fields: createdAt, order: DESC}) {
     nodes {
       title
-      updatedAt(formatString: "Do MMMM YYYY, H:mm")
+      createdAt(formatString: "Do MMMM YYYY, H:mm")
       body {
         childMarkdownRemark {
           timeToRead

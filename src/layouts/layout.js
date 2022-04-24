@@ -5,7 +5,7 @@ import Page from "./page";
 
 const backgroundColor = {
     background: "#3D3D3D",
-    width: "100%",
+    //width: "100%", //TODO check borders for gaps
     marginBottom: "-10px", //Makes sure the footer touches the bottom of the page
 }
 

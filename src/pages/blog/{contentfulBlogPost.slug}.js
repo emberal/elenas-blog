@@ -8,18 +8,18 @@ const BlogPage = ({data}) => {
     return(
         <Layout title={data.contentfulBlogPost.title} homePageColor={blogPageColor} children={
             <Card
-                date={data.contentfulBlogPost.updatedAt}
+                date={data.contentfulBlogPost.createdAt}
                 body={
                     <div className="body"
                            dangerouslySetInnerHTML={{
                                __html: data.contentfulBlogPost.introduction.childMarkdownRemark.html +
                                    data.contentfulBlogPost.body.childMarkdownRemark.html,
                            }}
-                    />}
+                    />
+                }
                 timeToRead={data.contentfulBlogPost.body.childMarkdownRemark.timeToRead}
             />
-        }>
-        </Layout>
+        }/>
     )
 }
 
@@ -38,7 +38,7 @@ query($id: String) {
         }
     }
     title
-    updatedAt(formatString: "Do MMMM YYYY, H:mm")
+    createdAt(formatString: "Do MMMM YYYY, H:mm")
   }
 }
 `
