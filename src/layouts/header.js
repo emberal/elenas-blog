@@ -1,6 +1,7 @@
 import * as React from "react";
 import HeaderButton from "./headerButton";
 import {Link} from "gatsby";
+import {StaticImage} from "gatsby-plugin-image";
 
 const header = {
     fontFamily: "sans-serif",
@@ -63,6 +64,10 @@ const linkStyle = {
     color: "white",
     textDecoration: "none"
 }
+const iconStyle = {
+    maxWidth: "28px",
+    margin: "auto",
+}
 
 const Header = () => {
     return(
@@ -74,10 +79,42 @@ const Header = () => {
             </div>
 
             <div style={buttons}>
-                <HeaderButton buttonStyle={contactMe} link={ <Link style={linkStyle} to={"/contact-me"}>Contact me</Link> }/>
-                <HeaderButton buttonStyle={blog} link={ <Link style={linkStyle} to={"/blog"}>Blog</Link> }/>
-                <HeaderButton buttonStyle={gallery} link={ <Link style={linkStyle} to={"/gallery"}>Gallery</Link> }/>
-                <HeaderButton buttonStyle={home} link={ <Link style={linkStyle} to={"/"}>Home</Link> }/>
+                <HeaderButton
+                    buttonStyle={contactMe}
+                    link={{
+                        link: "/contact-me",
+                        title: "Contact me",
+                        style: linkStyle
+                    }}
+                    icon={<StaticImage style={iconStyle} src={"../images/icons8-chat-48.png"} alt={"Chat icon"}/>}
+                />
+                <HeaderButton
+                    buttonStyle={blog}
+                    link={{
+                        link: "/blog",
+                        title: "Blog",
+                        style: linkStyle
+                    }}
+                    icon={<StaticImage style={iconStyle} src={"../images/icons8-comments-48.png"} alt={"Comments icon"}/>}
+                />
+                <HeaderButton
+                    buttonStyle={gallery}
+                    link={{
+                        link: "/gallery",
+                        title: "Gallery",
+                        style: linkStyle
+                    }}
+                    icon={<StaticImage style={iconStyle} src={"../images/icons8-photo-gallery-48.png"} alt={"Photo-gallery icon"}/>}
+                />
+                <HeaderButton
+                    buttonStyle={home}
+                    link={{
+                        link: "/",
+                        title: "Home",
+                        style: linkStyle
+                    }}
+                    icon={<StaticImage style={iconStyle} src={"../images/icons8-home-page-48.png"} alt={"Home-page icon"}/>}
+                />
             </div>
         </header>
     )

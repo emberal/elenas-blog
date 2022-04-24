@@ -31,6 +31,7 @@ const Footer = () => {
             <p style={right}>Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>Gatsby.js </Link>
                 and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a></p>
             <p style={center}>Made with &#9829; by Martin</p>
+            <p>Icons by <a style={linkStyle} href="https://icons8.com">Icons8</a></p>
         </div>
     )
 }
