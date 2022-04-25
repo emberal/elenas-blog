@@ -1,5 +1,6 @@
 import * as React from "react";
 import Footer from "./footer";
+import {smallPage, mediumPage} from "../stylesheets/Media.module.css"
 
 const pageStyle = {
     fontFamily: "sans-serif",
@@ -21,12 +22,17 @@ const paddingBottom = {
 const Page = ({title, children}) => {
     return(
         <main style={pageStyle}>
-            <title>{title + "|" + "Elena's blog"}</title>
-            <h1 style={titleStyle}>{title}</h1>
-            <div style={paddingBottom}>
-                {children}
+            <div className={mediumPage}>
+                <div className={smallPage}>
+                    <title>{title + "| Elena's blog"}</title>
+                    <h1 style={titleStyle}>{title}</h1>
+                    <div style={paddingBottom}>
+                        {children}
+                    </div>
+                </div>
             </div>
-            <Footer>{/*TODO add info*/}</Footer>
+
+            <Footer/>
         </main>
     )
 }

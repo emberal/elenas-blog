@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const card = {
+const card = { //TODO center when window size decreases
     position: "relative",
     left: "7.5%",
     width: "85%", height: "fit-content",
@@ -23,7 +23,8 @@ const cardPic = {
     right: "10px",
 }
 const dateStyle = {
-    paddingTop: 0,
+    paddingTop: "20px",
+    paddingLeft: "20px",
     position: "relative",
     float: "right",
     paddingRight: "20px",
@@ -32,8 +33,8 @@ const dateStyle = {
 const CardLayout = ({date, timeToRead, children}) => {
     return(
         <article style={card}>
-            <div style={cardPic}>
-                <p style={dateStyle}>Published: {date}</p>
+            <div style={dateStyle}>
+                <p>Published: {date}</p>
                 <p>{timeToRead} minute read</p>
             </div>
             <div style={cardText}>

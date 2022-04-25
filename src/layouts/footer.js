@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Link} from "gatsby";
+import {smallFooter} from "../stylesheets/Media.module.css"
 
 const footer = {
     fontFamily: "sans-serif",
@@ -26,7 +27,7 @@ const linkStyle = {
 
 const Footer = () => {
     return(
-        <div style={footer}>
+        <div style={footer}> {/*TODO use @media*/}
             <p style={left}>Source code on <a style={linkStyle} href={"https://github.com/h600878/elenas-blog"}>Github</a></p>
             <p style={right}>Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>Gatsby.js </Link>
                 and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a></p>

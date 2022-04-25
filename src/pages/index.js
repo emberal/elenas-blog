@@ -30,7 +30,6 @@ const textPosition = {
     position: "relative",
     left: "5px",
 }
-
 const titleStyle = {
     position: "relative",
     left: "7.5%",
