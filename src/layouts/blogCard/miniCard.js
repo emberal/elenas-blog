@@ -14,7 +14,7 @@ const MiniCard = ({title, date, intro, link, timeToRead, pic, picAlt}) => {
             timeToRead={timeToRead}
             children={
                 <div>
-                    <h2> {/*TODO headline breaks too soon*/}
+                    <h2>
                         <Link style={linkStyle} to={link}>{title}</Link>
                     </h2>
                     <p>{intro}</p>

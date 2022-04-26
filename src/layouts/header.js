@@ -16,12 +16,12 @@ const headline = {
     fontSize: "40px",
     position: "absolute",
     top: "10px",
-    left: "25%",
+    left: "12.5%",
 }
 const buttons = {
     position: "relative",
     float: "right",
-    right: "25%",
+    right: "12.5%",
     height: "fit-content", width: "fit-content",
 }
 const home = {

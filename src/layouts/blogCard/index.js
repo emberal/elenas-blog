@@ -1,16 +1,18 @@
 import * as React from "react";
+import {dateStyle, dateStyleFloat} from "../../stylesheets/Media.module.css"
+import classNames from "classnames";
 
-const card = { //TODO center when window size decreases
+const card = {
     position: "relative",
     left: "7.5%",
     width: "85%", height: "fit-content",
     paddingBottom: "10px",
     border: "solid grey",
-    marginBottom: "50px",
+    marginBottom: "80px",
     overflow: "auto", //Makes sure the pic is within the <div>
 }
 const cardText = {
-    paddingTop: "15px",
+    paddingTop: "0px",
     paddingLeft: "20px",
     paddingRight: "20px",
 }
@@ -22,18 +24,12 @@ const cardPic = {
     paddingLeft: "25px",
     right: "10px",
 }
-const dateStyle = {
-    paddingTop: "20px",
-    paddingLeft: "20px",
-    position: "relative",
-    float: "right",
-    paddingRight: "20px",
-}
 
 const CardLayout = ({date, timeToRead, children}) => {
+    const classes = classNames(dateStyle, dateStyleFloat);
     return(
         <article style={card}>
-            <div style={dateStyle}>
+            <div className={classes}>
                 <p>Published: {date}</p>
                 <p>{timeToRead} minute read</p>
             </div>

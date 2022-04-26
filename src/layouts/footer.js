@@ -1,6 +1,5 @@
 import * as React from "react";
 import {Link} from "gatsby";
-import {smallFooter} from "../stylesheets/Media.module.css"
 
 const footer = {
     fontFamily: "sans-serif",
@@ -9,17 +8,7 @@ const footer = {
     width: "100%",
     backgroundColor: "#3D3D3D",
     color: "white",
-}
-const center = {
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "fit-content",
-}
-const left = {
-    float: "left",
-}
-const right = {
-    float: "right",
+    textAlign: "center",
 }
 const linkStyle = {
     color: "#a456f0"
@@ -27,12 +16,15 @@ const linkStyle = {
 
 const Footer = () => {
     return(
-        <div style={footer}> {/*TODO use @media*/}
-            <p style={left}>Source code on <a style={linkStyle} href={"https://github.com/h600878/elenas-blog"}>Github</a></p>
-            <p style={right}>Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>Gatsby.js </Link>
-                and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a></p>
-            <p style={center}>Made with &#9829; by Martin</p>
-            <p>Icons by <a style={linkStyle} href="https://icons8.com">Icons8</a></p>
+        <div style={footer}>
+            <div>
+                <p>Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>Gatsby.js </Link>
+                    and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a>,
+                Icons by <a style={linkStyle} href="https://icons8.com">Icons8</a></p>
+                <p>Source code on <a style={linkStyle} href={"https://github.com/h600878/elenas-blog"}>Github</a></p>
+                <p>Made with &#9829; by Martin</p>
+            </div>
+
         </div>
     )
 }
