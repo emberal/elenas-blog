@@ -24,6 +24,7 @@ const aboutMePic = {
     width: "250px",
     paddingTop: "20px",
     paddingLeft: "25px",
+    paddingBottom: "20px",
     right: "10px",
 }
 const textPosition = {

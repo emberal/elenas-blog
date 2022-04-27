@@ -16,7 +16,7 @@ const Page = ({title, children}) => {
     const classes = classNames(pageStyle, pageStyleWidth);
     return(
         <main className={classes}>
-                <title>{title + "| Elena's blog"}</title>
+                <title>{title + " | Elena's blog"}</title>
                 <h1 style={titleStyle}>{title}</h1>
                 <div style={paddingBottom}>
                     {children}

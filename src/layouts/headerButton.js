@@ -4,7 +4,7 @@ import {Link, navigate} from "gatsby";
 const buttonBox = {
     position: "relative",
     float: "right",
-    height: "fit-content", width: "100px",
+    height: "fit-content", minWidth: "100px",
     marginTop: "5px",
 }
 const buttonText = {
