@@ -5,8 +5,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Elenas foodblog`,
-    siteUrl: `https://www.yourdomain.tld` //TODO Add domain
+    title: `Elena's foodblog`,
+    siteUrl: `https://elenasblogmaster.gatsbyjs.io/`
   },
     plugins: [
       "gatsby-plugin-image",

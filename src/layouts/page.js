@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-import {Link} from "gatsby";
+import {graphql, Link, useStaticQuery} from "gatsby";
 import Footer from "./footer";
 import {pageStyle, titleStyle} from "../stylesheets/page.module.css"
 import {pageStyleWidth, navLinksSmall, navLinksHide, titleStylePadding} from "../stylesheets/Media.module.css"
@@ -13,20 +13,27 @@ const navLink = {
 }
 
 const Page = ({title, children}) => {
-    const pageClasses = classNames(pageStyle, pageStyleWidth);
-    const navLinksClasses = classNames(navLinksSmall, navLinksHide);
-    const titleClasses = classNames(titleStyle, titleStylePadding);
+
+    const query = useStaticQuery(graphql `
+    query {
+        site {
+            siteMetadata {
+                title
+            }
+        }
+    }
+    `)
 
     return (
-        <main className={pageClasses}>
-            <title>{title + " | Elena's blog"}</title>
-            <div className={navLinksClasses}>
+        <main className={classNames(pageStyle, pageStyleWidth)}>
+            <title>{title + " | " + query.site.siteMetadata.title}</title>
+            <div className={classNames(navLinksSmall, navLinksHide)}>
                 <Link style={navLink} to={"/"}>Home</Link>
                 <Link style={navLink} to={"/gallery"}>Gallery</Link>
                 <Link style={navLink} to={"/blog"}>Blog</Link>
                 <Link style={navLink} to={"/contact-me"}>Contact me</Link>
             </div>
-            <h1 className={titleClasses}>{title}</h1>
+            <h1 className={classNames(titleStyle, titleStylePadding)}>{title}</h1>
             <div style={paddingBottom}>
                 {children}
             </div>

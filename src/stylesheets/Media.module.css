@@ -17,7 +17,7 @@
 
 @media screen and (max-width: 600px) {
     .profile-pic-pos {
-        float: bottom;
+        margin: auto;
     }
 }
 @media screen and (min-width: 600px) {
