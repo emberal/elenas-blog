@@ -1,31 +1,25 @@
 import * as React from "react"
+import classNames from "classnames";
+import {graphql} from "gatsby";
+import {StaticImage} from "gatsby-plugin-image";
 import Layout from "../layouts/layout";
 import MiniCard from "../layouts/blogCard/miniCard";
-import {StaticImage} from "gatsby-plugin-image";
 import {homePageColor} from "../stylesheets/Colors.module.css"
-import {graphql} from "gatsby";
+import {profilePicPos} from "../stylesheets/Media.module.css";
+import {aboutMePic} from "../stylesheets/page.module.css"
 
 const aboutMe = {
     position: "relative",
     left: "5%",
-    width: "90%", height: "450px",
+    width: "90%", height: "fit-content",
     paddingTop: "30px",
-    overflow: "auto"
 }
 const aboutMeText = {
     border: "solid grey",
-    position: "absolute",
+    position: "relative",
     left: "2.5%",
     width: "95%", height: "fit-content",
-}
-const aboutMePic = {
-    position: "relative",
-    float: "right",
-    width: "250px",
-    paddingTop: "20px",
-    paddingLeft: "25px",
-    paddingBottom: "20px",
-    right: "10px",
+    overflowX: "hidden"
 }
 const textPosition = {
     position: "relative",
@@ -34,7 +28,6 @@ const textPosition = {
 const titleStyle = {
     position: "relative",
     left: "7.5%",
-    float: "below"
 }
 
 const IndexPage = ({data}) => {
@@ -43,7 +36,7 @@ const IndexPage = ({data}) => {
             <div>
                 <article style={aboutMe}>
                     <div style={aboutMeText}>
-                        <div style={aboutMePic}>
+                        <div className={classNames(aboutMePic, profilePicPos)}>
                             <StaticImage src={"../images/ElenaGoddess.jpg"} alt={"A beautiful woman"}/>
                         </div>
                         <div style={textPosition}>
@@ -70,27 +63,29 @@ const IndexPage = ({data}) => {
                         </div>
                     </div>
                 </article>
-                <h2 style={titleStyle}>Latest blogposts</h2>
-                {
-                    data.allContentfulBlogPost.nodes.map( node => (
-                        <article key={node.id}>
-                            <MiniCard
-                                title={node.title}
-                                date={node.createdAt}
-                                link={"/blog/" + node.slug}
-                                timeToRead={node.body.childMarkdownRemark.timeToRead}
-                                intro={
-                                    <div className="introduction"
-                                        dangerouslySetInnerHTML={{
-                                        __html: node.introduction.childMarkdownRemark.html,
-                                        }}
-                                    />
-                                }
-                                //TODO add pic
-                            />
-                        </article>
-                    ))
-                }
+                <div>
+                    <h2 style={titleStyle}>Latest blogposts</h2>
+                    {
+                        data.allContentfulBlogPost.nodes.map( node => (
+                            <article key={node.id}>
+                                <MiniCard
+                                    title={node.title}
+                                    date={node.createdAt}
+                                    link={"/blog/" + node.slug}
+                                    timeToRead={node.body.childMarkdownRemark.timeToRead}
+                                    intro={
+                                        <div className="introduction"
+                                             dangerouslySetInnerHTML={{
+                                                 __html: node.introduction.childMarkdownRemark.html,
+                                             }}
+                                        />
+                                    }
+                                    //TODO add pic
+                                />
+                            </article>
+                        ))
+                    }
+                </div>
             </div>
         }/>
     )

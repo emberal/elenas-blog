@@ -15,9 +15,21 @@
     display: none;
 }
 
+@media screen and (max-width: 600px) {
+    .profile-pic-pos {
+        float: bottom;
+    }
+}
+@media screen and (min-width: 600px) {
+    .profile-pic-pos {
+        float: right;
+    }
+}
+
 @media screen and (max-width: 819px) {
     .page-style-width {
         width: 100%;
+        overflow: hidden;
     }
     .title-style-padding {
         padding-top: 0;

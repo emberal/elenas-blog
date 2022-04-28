@@ -3,8 +3,8 @@ import HeaderButton from "./headerButton";
 import {Link} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import classNames from "classnames";
-import {buttonStyle, headline} from "../stylesheets/header.module.css"
 import {headlinePos} from "../stylesheets/Media.module.css"
+import {buttonStyle, headline} from "../stylesheets/header.module.css"
 import {homePageColor, galleryPageColor, blogPageColor, contactMePageColor} from "../stylesheets/Colors.module.css"
 
 const header = {
@@ -32,10 +32,9 @@ const iconStyle = {
 
 const Header = () => {
     const buttonClasses = classNames(buttonStyle);
-    const headlineClasses = classNames(headline, headlinePos);
     return(
         <header style={header}>
-            <div className={headlineClasses}>
+            <div className={classNames(headline, headlinePos)}>
                 <Link style={linkStyle} to={"/"}>
                     Elena's blog
                 </Link>

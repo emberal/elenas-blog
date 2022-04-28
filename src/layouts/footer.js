@@ -18,13 +18,14 @@ const Footer = () => {
     return(
         <div style={footer}>
             <div>
-                <p>Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>Gatsby.js </Link>
-                    and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a>,
-                Icons by <a style={linkStyle} href="https://icons8.com">Icons8</a></p>
+                <p>
+                    Created using <Link style={linkStyle} to={"https://www.gatsbyjs.com/"}>
+                        Gatsby.js</Link> and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a>,
+                        Icons by <a style={linkStyle} href="https://icons8.com">Icons8</a>
+                </p>
                 <p>Source code on <a style={linkStyle} href={"https://github.com/h600878/elenas-blog"}>Github</a></p>
                 <p>Made with &#9829; by Martin</p>
             </div>
-
         </div>
     )
 }
