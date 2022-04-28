@@ -2,6 +2,10 @@ import * as React from "react";
 import HeaderButton from "./headerButton";
 import {Link} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
+import classNames from "classnames";
+import {buttonStyle, headline} from "../stylesheets/header.module.css"
+import {headlinePos} from "../stylesheets/Media.module.css"
+import {homePageColor, galleryPageColor, blogPageColor, contactMePageColor} from "../stylesheets/Colors.module.css"
 
 const header = {
     fontFamily: "sans-serif",
@@ -11,54 +15,11 @@ const header = {
     height: "80px", width: "100%",
     boxShadow: "0 3px 3px",
 }
-const headline = {
-    color: "white",
-    fontSize: "40px",
-    position: "absolute",
-    top: "10px",
-    left: "12.5%",
-}
 const buttons = {
     position: "relative",
     float: "right",
     right: "12.5%",
     height: "fit-content", width: "fit-content",
-}
-const home = {
-    background: "#215A7A",
-    position: "relative",
-    left: "29px",
-    height: "42px", width: "42px",
-    margin: "auto auto 5px",
-    boxShadow: "1px 4px 4px" /*inset"*/,
-    border: "none"
-}
-const gallery = {
-    background: "#217A3F",
-    position: "relative",
-    left: "29px",
-    height: "42px", width: "42px",
-    margin: "auto auto 5px",
-    boxShadow: "1px 4px 4px",
-    border: "none"
-}
-const blog = {
-    background: "#aa6523",
-    position: "relative",
-    left: "29px",
-    height: "42px", width: "42px",
-    margin: "auto auto 5px",
-    boxShadow: "1px 4px 4px",
-    border: "none"
-}
-const contactMe = {
-    background: "#48217A",
-    position: "relative",
-    left: "29px",
-    height: "42px", width: "42px",
-    margin: "auto auto 5px",
-    boxShadow: "1px 4px 4px",
-    border: "none"
 }
 const linkStyle = {
     color: "white",
@@ -70,17 +31,18 @@ const iconStyle = {
 }
 
 const Header = () => {
+    const buttonClasses = classNames(buttonStyle);
+    const headlineClasses = classNames(headline, headlinePos);
     return(
         <header style={header}>
-            <div style={headline}>
+            <div className={headlineClasses}>
                 <Link style={linkStyle} to={"/"}>
                     Elena's blog
                 </Link>
             </div>
-
             <nav style={buttons}>
                 <HeaderButton
-                    buttonStyle={contactMe}
+                    buttonStyle={classNames(buttonClasses, contactMePageColor)}
                     link={{
                         link: "/contact-me",
                         title: "Contact me",
@@ -89,7 +51,7 @@ const Header = () => {
                     icon={<StaticImage style={iconStyle} src={"../images/icons8-chat-48.png"} alt={"Chat icon"}/>}
                 />
                 <HeaderButton
-                    buttonStyle={blog}
+                    buttonStyle={classNames(buttonClasses, blogPageColor)}
                     link={{
                         link: "/blog",
                         title: "Blog",
@@ -98,7 +60,7 @@ const Header = () => {
                     icon={<StaticImage style={iconStyle} src={"../images/icons8-comments-48.png"} alt={"Comments icon"}/>}
                 />
                 <HeaderButton
-                    buttonStyle={gallery}
+                    buttonStyle={classNames(buttonClasses, galleryPageColor)}
                     link={{
                         link: "/gallery",
                         title: "Gallery",
@@ -107,7 +69,7 @@ const Header = () => {
                     icon={<StaticImage style={iconStyle} src={"../images/icons8-photo-gallery-48.png"} alt={"Photo-gallery icon"}/>}
                 />
                 <HeaderButton
-                    buttonStyle={home}
+                    buttonStyle={classNames(buttonClasses, homePageColor)}
                     link={{
                         link: "/",
                         title: "Home",

@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Link, navigate} from "gatsby";
+import {hidden, headerButtonHide} from "../stylesheets/Media.module.css"
 
 const buttonBox = {
     position: "relative",
@@ -12,24 +13,24 @@ const buttonText = {
     fontSize: "large",
     textAlign: "center",
 }
-const hidden = {
-    fontSize: 0,
-}
 
 const HeaderButton = ({buttonStyle, link, icon}) => {
     return(
         <div style={buttonBox}>
-            <button type={"button"} style={buttonStyle} onClick={(e) => {
-                {/*TODO add clicking animation onClick*/}
-                e.preventDefault();
-                navigate(link.link);
-            }}>
-                <span style={hidden}>{link.title}</span>
-                {icon}
-            </button>
-            <div style={buttonText}>
-                <Link style={link.style} to={link.link}>{link.title}</Link>
+            <div className={headerButtonHide}>
+                <button type={"button"} className={buttonStyle} onClick={(e) => {
+                    {/*TODO add clicking animation onClick*/}
+                    e.preventDefault();
+                    navigate(link.link);
+                }}>
+                    <span className={hidden}>{link.title}</span>
+                    {icon}
+                </button>
+                <div style={buttonText}>
+                    <Link style={link.style} to={link.link}>{link.title}</Link>
+                </div>
             </div>
+
         </div>
     )
 }

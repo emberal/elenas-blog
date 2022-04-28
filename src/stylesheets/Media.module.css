@@ -1,31 +1,47 @@
-.page-style {
-    font-family: sans-serif;
-    background: white;
-    position: relative;
-    margin: auto;
-    min-height: 100vh;
-}
-.dateStyle {
+.date-style {
     padding-top: 5px;
     padding-left: 20px;
     position: relative;
     float: top;
     padding-right: 20px;
 }
+.nav-links-small {
+    padding-top: 80px;
+    position: relative;
+    left: 7.5%;
+    color: black;
+}
+.hidden {
+    display: none;
+}
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 819px) {
     .page-style-width {
         width: 100%;
+    }
+    .title-style-padding {
+        padding-top: 0;
+    }
+    .headline-pos {
+        left: 7.5%;
     }
     .date-style-float {
         float: top;
     }
-    /*TODO hide buttons and use a hamburger-menu*/
+    .header-button-hide {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 820px) {
     .page-style-width {
         width: 75%;
+    }
+    .title-style-padding {
+        padding-top: 100px;
+    }
+    .headline-pos {
+        left: 12.5%;
     }
     .sidebar {
         position: fixed;
@@ -35,5 +51,8 @@
     }
     .date-style-float {
         float: right;
+    }
+    .nav-links-hide {
+        display: none;
     }
 }

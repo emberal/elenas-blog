@@ -1,0 +1,15 @@
+.button-style {
+    position: relative;
+    left: 29px;
+    height: 42px; width: 42px;
+    margin: auto auto 5px;
+    box-shadow: 1px 4px 4px /*inset"*/;
+    border: none;
+}
+.headline {
+    color: white;
+    font-size: 40px;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+}

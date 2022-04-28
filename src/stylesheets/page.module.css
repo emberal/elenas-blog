@@ -1,0 +1,11 @@
+.page-style {
+    font-family: sans-serif;
+    background: white;
+    position: relative;
+    margin: auto;
+    min-height: 100vh;
+}
+.title-style {
+    position: relative;
+    left: 7.5%;
+}
