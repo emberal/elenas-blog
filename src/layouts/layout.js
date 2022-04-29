@@ -8,13 +8,17 @@ const backgroundColor = {
     marginBottom: "-10px", //Makes sure the footer touches the bottom of the page
 }
 
-const Layout = ({title, homePageColor, children}) => {
+const Layout = ({title, homePageColor, children, description}) => {
     return(
-        <body style={backgroundColor}>
-            <Page title={title} children={children}></Page>
-            <Sidebar color={homePageColor}></Sidebar>
-            <Header/>
-        </body>
+        <html lang={"en"}>
+            <meta name={"description"} content={description}/>
+            <body style={backgroundColor}>
+                <Page title={title} children={children}></Page>
+                <Sidebar color={homePageColor}></Sidebar>
+                <Header/>
+            </body>
+        </html>
+
     )
 }
 

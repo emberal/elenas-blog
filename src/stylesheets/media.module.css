@@ -6,10 +6,13 @@
     padding-right: 20px;
 }
 .nav-links-small {
-    padding-top: 80px;
-    position: relative;
-    left: 7.5%;
+    padding-top: 60px;
+    position:  relative;
+    left: 2.5%;
     color: black;
+    display: flex;
+    list-style: none;
+    padding-left: unset;
 }
 .hidden {
     display: none;
@@ -35,7 +38,7 @@
         padding-top: 0;
     }
     .headline-pos {
-        left: 7.5%;
+        left: 2.5%;
     }
     .date-style-float {
         float: top;

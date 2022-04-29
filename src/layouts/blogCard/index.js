@@ -1,11 +1,11 @@
 import * as React from "react";
-import {dateStyle, dateStyleFloat} from "../../stylesheets/Media.module.css"
+import {dateStyle, dateStyleFloat} from "../../stylesheets/media.module.css"
 import classNames from "classnames";
 
 const card = {
     position: "relative",
-    left: "7.5%",
-    width: "85%", height: "fit-content",
+    left: "2.5%",
+    width: "95%", height: "fit-content",
     paddingBottom: "10px",
     border: "solid grey",
     marginBottom: "80px",

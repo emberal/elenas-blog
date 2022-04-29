@@ -4,14 +4,13 @@ import {graphql} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import Layout from "../layouts/layout";
 import MiniCard from "../layouts/blogCard/miniCard";
-import {homePageColor} from "../stylesheets/Colors.module.css"
-import {profilePicPos} from "../stylesheets/Media.module.css";
+import {homePageColor} from "../stylesheets/colors.module.css"
+import {profilePicPos} from "../stylesheets/media.module.css";
 import {aboutMePic} from "../stylesheets/page.module.css"
 
 const aboutMe = {
     position: "relative",
-    left: "5%",
-    width: "90%", height: "fit-content",
+    width: "fit-content", height: "fit-content",
     paddingTop: "30px",
 }
 const aboutMeText = {
@@ -24,10 +23,11 @@ const aboutMeText = {
 const textPosition = {
     position: "relative",
     left: "5px",
+    marginRight: "10px"
 }
 const titleStyle = {
     position: "relative",
-    left: "7.5%",
+    left: "2.5%",
 }
 
 const IndexPage = ({data}) => {

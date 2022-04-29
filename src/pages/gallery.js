@@ -1,6 +1,6 @@
 import * as React from "react";
 import Layout from "../layouts/layout";
-import {galleryPageColor} from "../stylesheets/Colors.module.css"
+import {galleryPageColor} from "../stylesheets/colors.module.css"
 import {graphql} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 

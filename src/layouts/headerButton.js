@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Link, navigate} from "gatsby";
-import {hidden, headerButtonHide} from "../stylesheets/Media.module.css"
+import {hidden, headerButtonHide} from "../stylesheets/media.module.css"
 
 const buttonBox = {
     position: "relative",

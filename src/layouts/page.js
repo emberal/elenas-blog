@@ -3,36 +3,41 @@ import classNames from "classnames";
 import {graphql, Link, useStaticQuery} from "gatsby";
 import Footer from "./footer";
 import {pageStyle, titleStyle} from "../stylesheets/page.module.css"
-import {pageStyleWidth, navLinksSmall, navLinksHide, titleStylePadding} from "../stylesheets/Media.module.css"
+import {pageStyleWidth, navLinksSmall, navLinksHide, titleStylePadding} from "../stylesheets/media.module.css"
 
 const paddingBottom = {
     paddingBottom: "100px",
 }
-const navLink = {
-    paddingRight: "2rem",
+const navLinkText = {
+    margin: "auto",
+    position: "relative",
+    height: "50px",
+    paddingRight: "1rem",
+    top: "10px"
 }
 
 const Page = ({title, children}) => {
 
     const query = useStaticQuery(graphql `
-    query {
-        site {
-            siteMetadata {
-                title
+        query {
+            site {
+                siteMetadata {
+                    title
+                }
             }
         }
-    }
-    `)
+    `
+    )
 
     return (
         <main className={classNames(pageStyle, pageStyleWidth)}>
             <title>{title + " | " + query.site.siteMetadata.title}</title>
-            <div className={classNames(navLinksSmall, navLinksHide)}>
-                <Link style={navLink} to={"/"}>Home</Link>
-                <Link style={navLink} to={"/gallery"}>Gallery</Link>
-                <Link style={navLink} to={"/blog"}>Blog</Link>
-                <Link style={navLink} to={"/contact-me"}>Contact me</Link>
-            </div>
+            <ul className={classNames(navLinksSmall, navLinksHide)}>
+                <li><Link to={"/"}><p style={navLinkText}>Home</p></Link></li>
+                <li><Link to={"/gallery"}><p style={navLinkText}>Gallery</p></Link></li>
+                <li><Link to={"/blog"}><p style={navLinkText}>Blog</p></Link></li>
+                <li><Link to={"/contact-me"}><p style={navLinkText}>Contact me</p></Link></li>
+            </ul>
             <h1 className={classNames(titleStyle, titleStylePadding)}>{title}</h1>
             <div style={paddingBottom}>
                 {children}

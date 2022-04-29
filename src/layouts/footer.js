@@ -11,7 +11,7 @@ const footer = {
     textAlign: "center",
 }
 const linkStyle = {
-    color: "#a456f0"
+    color: "#ad63ff"
 }
 
 const Footer = () => {

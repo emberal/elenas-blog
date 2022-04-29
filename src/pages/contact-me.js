@@ -1,6 +1,6 @@
 import * as React from "react";
 import Layout from "../layouts/layout";
-import {contactMePageColor} from "../stylesheets/Colors.module.css"
+import {contactMePageColor} from "../stylesheets/colors.module.css"
 
 const ContactMe = () => {
     return(

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {sidebar} from "../stylesheets/Media.module.css"
+import {sidebar} from "../stylesheets/media.module.css"
 import classNames from 'classnames'
 
 const Sidebar = ({color}) => {

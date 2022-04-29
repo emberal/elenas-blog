@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "../../layouts/layout";
 import {graphql} from "gatsby";
-import {blogPageColor} from "../../stylesheets/Colors.module.css"
+import {blogPageColor} from "../../stylesheets/colors.module.css"
 import MiniCard from "../../layouts/blogCard/miniCard";
 
 const Blog = ({data}) => {

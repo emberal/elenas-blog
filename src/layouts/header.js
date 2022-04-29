@@ -3,9 +3,9 @@ import HeaderButton from "./headerButton";
 import {Link} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import classNames from "classnames";
-import {headlinePos} from "../stylesheets/Media.module.css"
+import {headlinePos} from "../stylesheets/media.module.css"
 import {buttonStyle, headline} from "../stylesheets/header.module.css"
-import {homePageColor, galleryPageColor, blogPageColor, contactMePageColor} from "../stylesheets/Colors.module.css"
+import {homePageColor, galleryPageColor, blogPageColor, contactMePageColor} from "../stylesheets/colors.module.css"
 
 const header = {
     fontFamily: "sans-serif",
