@@ -8,6 +8,6 @@
     border-radius: 10px;
     cursor: pointer;
 }
-.scroll-back-up-button:hover {
+.scroll-back-up-button:active {
     box-shadow: 1px 4px 4px inset;
 }
