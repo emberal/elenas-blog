@@ -4,9 +4,12 @@ import {contactMePageColor} from "../stylesheets/colors.module.css"
 
 const ContactMe = () => {
     return(
-        <Layout title={"Contact me"} homePageColor={contactMePageColor}>
+        <Layout title={"Contact me"} homePageColor={contactMePageColor} children={
+            <div>
 
-        </Layout>
+            </div>
+        }
+        description={"Contact Elena"}/> //TODO Better description
     )
 }
 

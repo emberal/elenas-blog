@@ -87,7 +87,8 @@ const IndexPage = ({data}) => {
                     }
                 </div>
             </div>
-        }/>
+        }
+        description={"Elena's foodblog."}/> //TODO better description
     )
 }
 

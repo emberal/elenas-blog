@@ -29,7 +29,8 @@ const Blog = ({data}) => {
                     ))
                 }
             </div>
-        }/>
+        }
+        description={"A foodblog by Elena with plenty of delicious meals"}/>
     );
 }
 

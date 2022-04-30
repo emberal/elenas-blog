@@ -32,7 +32,8 @@ const Gallery = ({data}) => {
                     ))
                 }
             </div>
-        }/>
+        }
+        description={"A gallery of delicious food."}/> //TODO better description
     )
 }
 

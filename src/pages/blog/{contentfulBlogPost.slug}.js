@@ -19,6 +19,11 @@ const BlogPage = ({data}) => {
                 }
                 timeToRead={data.contentfulBlogPost.body.childMarkdownRemark.timeToRead}
             />
+        }
+        description={
+            <div className="body"
+                 dangerouslySetInnerHTML={{
+                __html: data.contentfulBlogPost.introduction.childMarkdownRemark.html,}}/>
         }/>
     )
 }
