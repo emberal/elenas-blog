@@ -5,6 +5,7 @@
     margin: auto auto 5px;
     box-shadow: 1px 4px 4px /*inset"*/;
     border: none;
+    border-radius: 10px;
 }
 .headline {
     color: white;

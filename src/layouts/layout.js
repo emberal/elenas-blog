@@ -28,15 +28,15 @@ const Layout = ({title, homePageColor, children, description}) => {
         <div>
             <Helmet>
                 <meta name="description" content={description}/>
-                <meta lang={query.site.siteMetadata.lang}/>
+                <html lang={query.site.siteMetadata.lang}/>
                 <title>{title + " | " + query.site.siteMetadata.title}</title>
             </Helmet>
 
-            <body style={backgroundColor}>
+            <div style={backgroundColor}>
                 <Page title={title} children={children}></Page>
                 <Sidebar color={homePageColor}></Sidebar>
                 <Header/>
-            </body>
+            </div>
         </div>
 
     )

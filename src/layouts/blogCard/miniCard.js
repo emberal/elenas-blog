@@ -17,8 +17,8 @@ const MiniCard = ({title, date, intro, link, timeToRead, pic, picAlt}) => {
                     <h2>
                         <Link style={linkStyle} to={link}>{title}</Link>
                     </h2>
-                    <p>{intro}</p>
-                    <GatsbyImage image={pic} alt={picAlt}/>
+                    <div>{intro}</div>
+                    {/*<GatsbyImage image={pic} alt={picAlt}/>*/}
                 </div>
             }>
         </CardLayout>

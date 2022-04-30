@@ -1,6 +1,6 @@
 import * as React from "react";
-import {dateStyle, dateStyleFloat} from "../../stylesheets/media.module.css"
 import classNames from "classnames";
+import {dateStyle, dateStyleFloat} from "../../stylesheets/media.module.css"
 
 const card = {
     position: "relative",
@@ -8,6 +8,7 @@ const card = {
     width: "95%", height: "fit-content",
     paddingBottom: "10px",
     border: "solid grey",
+    borderRadius: "10px",
     marginBottom: "80px",
     overflow: "auto", //Makes sure the pic is within the <div>
 }
@@ -26,12 +27,17 @@ const cardPic = {
 }
 
 const CardLayout = ({date, timeToRead, children}) => {
-    const classes = classNames(dateStyle, dateStyleFloat);
     return(
         <article style={card}>
-            <div className={classes}>
-                <p>Published: {date}</p>
-                <p>{timeToRead} minute read</p>
+            <div className={classNames(dateStyle, dateStyleFloat)}>
+                {(timeToRead === undefined && date === undefined) ? null :
+                    (
+                        <div>
+                            <p>Published: {date}</p>
+                            <p>{timeToRead} minutes to read</p>
+                        </div>
+                    )
+                }
             </div>
             <div style={cardText}>
                 {children}

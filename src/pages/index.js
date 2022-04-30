@@ -7,18 +7,12 @@ import MiniCard from "../layouts/blogCard/miniCard";
 import {homePageColor} from "../stylesheets/colors.module.css"
 import {profilePicPos} from "../stylesheets/media.module.css";
 import {aboutMePic} from "../stylesheets/page.module.css"
+import Card from "../layouts/blogCard/card";
 
 const aboutMe = {
     position: "relative",
     width: "fit-content", height: "fit-content",
     paddingTop: "30px",
-}
-const aboutMeText = {
-    border: "solid grey",
-    position: "relative",
-    left: "2.5%",
-    width: "95%", height: "fit-content",
-    overflowX: "hidden"
 }
 const textPosition = {
     position: "relative",
@@ -34,8 +28,8 @@ const IndexPage = ({data}) => {
     return (
         <Layout title={"About me"} homePageColor={homePageColor} children={
             <div>
-                <article style={aboutMe}>
-                    <div style={aboutMeText}>
+                <Card style={aboutMe} body={
+                    <div>
                         <div className={classNames(aboutMePic, profilePicPos)}>
                             <StaticImage src={"../images/ElenaGoddess.jpg"} alt={"A beautiful woman"}/>
                         </div>
@@ -62,7 +56,8 @@ const IndexPage = ({data}) => {
                             </p>
                         </div>
                     </div>
-                </article>
+                }>
+                </Card>
                 <div>
                     <h2 style={titleStyle}>Latest blogposts</h2>
                     {
