@@ -1,8 +1,8 @@
 import * as React from "react";
-import Layout from "../../layouts/layout";
 import {graphql} from "gatsby";
-import {blogPageColor} from "../../stylesheets/colors.module.css"
+import Layout from "../../layouts/layout";
 import Card from "../../layouts/blogCard/card";
+import {blogPageColor} from "../../stylesheets/colors.module.css"
 
 const BlogPage = ({data}) => {
     return(
@@ -23,7 +23,7 @@ const BlogPage = ({data}) => {
         description={
             <div className="body"
                  dangerouslySetInnerHTML={{
-                __html: data.contentfulBlogPost.introduction.childMarkdownRemark.html,}}/>
+                __html: data.contentfulBlogPost.introduction.childMarkdownRemark.html}}/> //FIXME description shows [object Object]
         }/>
     )
 }

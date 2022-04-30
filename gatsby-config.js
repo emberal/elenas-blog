@@ -6,11 +6,14 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Elena's foodblog`,
+    description: "Elena's foodblog", //TODO
+    lang: `en`,
     siteUrl: `https://elenasblogmaster.gatsbyjs.io/`
   },
     plugins: [
       "gatsby-plugin-image",
       "gatsby-plugin-sharp",
+      "gatsby-plugin-react-helmet",
       {
         resolve: `gatsby-transformer-remark`,
         options: {

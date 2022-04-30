@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-import {graphql, Link, useStaticQuery} from "gatsby";
+import {Link} from "gatsby";
 import Footer from "./footer";
 import {pageStyle, titleStyle} from "../stylesheets/page.module.css"
 import {pageStyleWidth, navLinksSmall, navLinksHide, titleStylePadding} from "../stylesheets/media.module.css"
@@ -17,21 +17,8 @@ const navLinkText = {
 }
 
 const Page = ({title, children}) => {
-
-    const query = useStaticQuery(graphql `
-        query {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `
-    )
-
     return (
         <main className={classNames(pageStyle, pageStyleWidth)}>
-            <title>{title + " | " + query.site.siteMetadata.title}</title>
             <ul className={classNames(navLinksSmall, navLinksHide)}>
                 <li><Link to={"/"}><p style={navLinkText}>Home</p></Link></li>
                 <li><Link to={"/gallery"}><p style={navLinkText}>Gallery</p></Link></li>
