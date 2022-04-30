@@ -1,6 +1,9 @@
 .background-color  {
     background: #3D3D3D;
 }
+.header-color {
+    background: #693B7E;
+}
 .home-page-color  {
     background: #215A7A;
 }
@@ -12,4 +15,7 @@
 }
 .contact-me-page-color {
     background: #48217A;
+}
+.icons8-color {
+    background: #1fb141;
 }

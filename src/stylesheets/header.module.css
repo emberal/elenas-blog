@@ -3,9 +3,13 @@
     left: 29px;
     height: 42px; width: 42px;
     margin: auto auto 5px;
-    box-shadow: 1px 4px 4px /*inset"*/;
+    box-shadow: 1px 4px 4px;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+}
+.button-style:hover {
+    box-shadow: 1px 4px 4px inset;
 }
 .headline {
     color: white;

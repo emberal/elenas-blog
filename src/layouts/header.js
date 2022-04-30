@@ -3,9 +3,10 @@ import HeaderButton from "./headerButton";
 import {Link} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import classNames from "classnames";
-import {headlinePos} from "../stylesheets/media.module.css"
-import {buttonStyle, headline} from "../stylesheets/header.module.css"
 import {homePageColor, galleryPageColor, blogPageColor, contactMePageColor} from "../stylesheets/colors.module.css"
+import {buttonStyle, headline} from "../stylesheets/header.module.css"
+import {headlinePos} from "../stylesheets/media.module.css"
+import {iconStyle} from "../stylesheets/page.module.css"
 
 const header = {
     fontFamily: "sans-serif",
@@ -25,10 +26,6 @@ const linkStyle = {
     color: "white",
     textDecoration: "none"
 }
-const iconStyle = {
-    maxWidth: "28px",
-    margin: "auto",
-}
 
 const Header = () => {
     const buttonClasses = classNames(buttonStyle);
@@ -47,7 +44,7 @@ const Header = () => {
                         title: "Contact me",
                         style: linkStyle
                     }}
-                    icon={<StaticImage style={iconStyle} src={"../images/icons8-chat-48.png"} alt={"Chat icon"}/>}
+                    icon={<StaticImage className={iconStyle} src={"../images/icons8-chat-48.png"} alt={"Chat icon"}/>}
                 />
                 <HeaderButton
                     buttonStyle={classNames(buttonClasses, blogPageColor)}
@@ -56,7 +53,7 @@ const Header = () => {
                         title: "Blog",
                         style: linkStyle
                     }}
-                    icon={<StaticImage style={iconStyle} src={"../images/icons8-comments-48.png"} alt={"Comments icon"}/>}
+                    icon={<StaticImage className={iconStyle} src={"../images/icons8-comments-48.png"} alt={"Comments icon"}/>}
                 />
                 <HeaderButton
                     buttonStyle={classNames(buttonClasses, galleryPageColor)}
@@ -65,7 +62,7 @@ const Header = () => {
                         title: "Gallery",
                         style: linkStyle
                     }}
-                    icon={<StaticImage style={iconStyle} src={"../images/icons8-photo-gallery-48.png"} alt={"Photo-gallery icon"}/>}
+                    icon={<StaticImage className={iconStyle} src={"../images/icons8-photo-gallery-48.png"} alt={"Photo-gallery icon"}/>}
                 />
                 <HeaderButton
                     buttonStyle={classNames(buttonClasses, homePageColor)}
@@ -74,7 +71,7 @@ const Header = () => {
                         title: "Home",
                         style: linkStyle
                     }}
-                    icon={<StaticImage style={iconStyle} src={"../images/icons8-home-page-48.png"} alt={"Home-page icon"}/>}
+                    icon={<StaticImage className={iconStyle} src={"../images/icons8-home-page-48.png"} alt={"Home-page icon"}/>}
                 />
             </nav>
         </header>

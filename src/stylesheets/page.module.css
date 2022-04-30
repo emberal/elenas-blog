@@ -18,3 +18,14 @@
     padding-bottom: 20px;
     right: 10px;
 }
+.date-style {
+    padding-top: 5px;
+    padding-left: 20px;
+    position: relative;
+    float: top;
+    padding-right: 20px;
+}
+.icon-style {
+    max-width: 28px;
+    margin: auto;
+}

@@ -1,0 +1,13 @@
+.scroll-back-up-button {
+    background: #693B7E;
+    position: fixed;
+    width: 42px; height: 42px;
+    bottom: 50px;
+    border: none;
+    box-shadow: 1px 4px 4px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.scroll-back-up-button:hover {
+    box-shadow: 1px 4px 4px inset;
+}

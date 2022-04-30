@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Link} from "gatsby";
 
 const footer = {
     fontFamily: "sans-serif",
@@ -20,7 +21,7 @@ const Footer = () => {
                 <p>
                     Created using <a style={linkStyle} href={"https://www.gatsbyjs.com/"}>
                         Gatsby.js</a> and <a style={linkStyle} href={"https://www.contentful.com/"}>Contentful</a>,
-                        Icons by <a style={linkStyle} href="https://icons8.com">Icons8</a>
+                        Icons by <Link style={linkStyle} to={"/icons8"}>Icons8</Link>
                 </p>
                 <p>Source code on <a style={linkStyle} href={"https://github.com/h600878/elenas-blog"}>Github</a></p>
                 <p>Made with &#9829; by Martin</p>

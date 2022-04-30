@@ -1,10 +1,3 @@
-.date-style {
-    padding-top: 5px;
-    padding-left: 20px;
-    position: relative;
-    float: top;
-    padding-right: 20px;
-}
 .nav-links-small {
     font-size: large;
     padding-top: 60px;
@@ -47,6 +40,9 @@
     .header-button-hide {
         display: none;
     }
+    .scroll-back-up-button-pos {
+        right: 4px;
+    }
 }
 
 @media screen and (min-width: 820px) {
@@ -70,5 +66,8 @@
     }
     .nav-links-hide {
         display: none;
+    }
+    .scroll-back-up-button-pos {
+        left: 4px;
     }
 }

@@ -1,6 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
-import {dateStyle, dateStyleFloat} from "../../stylesheets/media.module.css"
+import {dateStyleFloat} from "../../stylesheets/media.module.css"
+import {dateStyle} from "../../stylesheets/page.module.css"
 
 const card = {
     position: "relative",
