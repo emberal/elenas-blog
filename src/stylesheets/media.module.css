@@ -12,18 +12,10 @@
     display: none;
 }
 
-@media screen and (max-width: 600px) {
-    .profile-pic-pos {
+@media screen and (max-width: 819px) {
+    .card-pic-pos {
         margin: auto;
     }
-}
-@media screen and (min-width: 600px) {
-    .profile-pic-pos {
-        float: right;
-    }
-}
-
-@media screen and (max-width: 819px) {
     .page-style-width {
         width: 100%;
         overflow: hidden;
@@ -46,6 +38,9 @@
 }
 
 @media screen and (min-width: 820px) {
+    .card-pic-pos {
+        float: right;
+    }
     .page-style-width {
         width: 75%;
     }

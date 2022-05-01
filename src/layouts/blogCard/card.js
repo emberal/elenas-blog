@@ -8,11 +8,8 @@ const Card = ({title, date, body, pic, picAlt, timeToRead}) => {
             pic={pic}
             picAlt={picAlt}
             timeToRead={timeToRead}
-            children={
-                <div>
-                    <h2>{title}</h2>
-                    {body}
-                </div>
+            title={<h2>{title}</h2>}
+            children={<div>{body}</div>
             }>
         </CardLayout>
     )

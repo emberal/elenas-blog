@@ -1,6 +1,7 @@
 import * as React from "react";
-import CardLayout from "./index"
 import {Link} from "gatsby";
+import CardLayout from "./index";
+import {cardTitleStyle} from "../../stylesheets/page.module.css";
 
 const linkStyle = {
     color: "#693B7E"
@@ -13,14 +14,8 @@ const MiniCard = ({title, date, intro, link, timeToRead, pic, picAlt}) => {
             timeToRead={timeToRead}
             pic={pic}
             picAlt={picAlt}
-            children={
-                <div>
-                    <h2>
-                        <Link style={linkStyle} to={link}>{title}</Link>
-                    </h2>
-                    <div>{intro}</div>
-                </div>
-            }
+            title={<h2 className={cardTitleStyle}><Link style={linkStyle} to={link}>{title}</Link></h2>}
+            children={<div>{intro}</div>}
         />
     )
 }

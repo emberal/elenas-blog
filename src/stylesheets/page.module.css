@@ -19,13 +19,23 @@
     right: 10px;
 }
 .date-style {
-    padding-top: 5px;
     padding-left: 20px;
     position: relative;
-    float: top;
-    padding-right: 20px;
+    padding-right: 10px;
+    width: fit-content;
 }
 .icon-style {
     max-width: 28px;
     margin: auto;
+}
+.card-title-style {
+    position: relative;
+    padding-left: 20px;
+    width: 90%;
+}
+.card-image-style {
+    position: relative;
+    max-width: 300px; max-height: 500px;
+    margin-left: 10px;
+    right: 10px;
 }

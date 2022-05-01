@@ -5,7 +5,7 @@ import {getImage, StaticImage} from "gatsby-plugin-image";
 import Layout from "../layouts/layout";
 import MiniCard from "../layouts/blogCard/miniCard";
 import {homePageColor} from "../stylesheets/colors.module.css"
-import {profilePicPos} from "../stylesheets/media.module.css";
+import {cardPicPos} from "../stylesheets/media.module.css";
 import {aboutMePic} from "../stylesheets/page.module.css"
 import Card from "../layouts/blogCard/card";
 
@@ -30,7 +30,7 @@ const IndexPage = ({data}) => {
             <div>
                 <Card style={aboutMe} body={
                     <div>
-                        <div className={classNames(aboutMePic, profilePicPos)}>
+                        <div className={classNames(aboutMePic, cardPicPos)}>
                             <StaticImage src={"../images/ElenaGoddess.jpg"} alt={"A beautiful woman"}/>
                         </div>
                         <div style={textPosition}>

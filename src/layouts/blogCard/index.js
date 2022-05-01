@@ -1,7 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
-import {dateStyleFloat} from "../../stylesheets/media.module.css"
-import {dateStyle} from "../../stylesheets/page.module.css"
+import {dateStyleFloat, cardPicPos} from "../../stylesheets/media.module.css"
+import {dateStyle, cardImageStyle} from "../../stylesheets/page.module.css"
 import {GatsbyImage} from "gatsby-plugin-image";
 
 const card = {
@@ -15,34 +15,34 @@ const card = {
     overflow: "auto", //Makes sure the pic is within the <div>
 }
 const cardText = {
-    paddingTop: "0px",
     paddingLeft: "20px",
     paddingRight: "20px",
 }
-const imageStyle = {
+const spanStyle = {
     position: "relative",
-    float: "right",
-    maxWidth: "400px", maxHeight: "500px",
-    paddingTop: "20px",
-    paddingLeft: "25px",
-    right: "10px",
+    paddingRight: "10px",
 }
 
-const CardLayout = ({date, timeToRead, children, pic, picAlt}) => {
+const CardLayout = ({date, timeToRead, title, children, pic, picAlt}) => {
     return(
         <article style={card}>
-            <div className={classNames(dateStyle, dateStyleFloat)}>
-                {(timeToRead === undefined && date === undefined) ? null :
-                    (
-                        <div>
-                            <p>Published: {date}</p>
-                            <p>{timeToRead} minutes to read</p>
-                        </div>
-                    )
-                }
-                {(pic === undefined && picAlt === undefined) ? null :
-                    (<GatsbyImage style={imageStyle} image={pic} alt={picAlt}/>)
-                }
+            {title}
+            <div className={dateStyleFloat}>
+                <div className={classNames(dateStyle, dateStyleFloat)}>
+                    {(timeToRead === undefined && date === undefined) ? null :
+                        (
+                            <div>
+                                <span style={spanStyle}>Published: {date} &#128366; {timeToRead} minutes to read</span>
+                            </div>
+                        )
+                    }
+                </div>
+                <div style={{clear: "both"}}></div>
+                <div className={classNames(dateStyle, dateStyleFloat, cardPicPos)}>
+                    {(pic === undefined && picAlt === undefined) ? null :
+                        (<GatsbyImage className={classNames(cardImageStyle, cardPicPos)} image={pic} alt={picAlt}/>)
+                    }
+                </div>
             </div>
             <div style={cardText}>
                 {children}
