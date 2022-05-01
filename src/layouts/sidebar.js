@@ -14,21 +14,23 @@ function scrollToTop() {
 const Sidebar = ({color}) => {
     const [isTop, setIsTop] = useState(true);
     useEffect(() => {
+        let isMounted = true;
         const handleScroll = () => {
-            const show = window.scrollY > 50;
-            if (isTop !== show) {
-                setIsTop(show)
-            }
-            if (document.documentElement.scrollTop === 0 && document.body.scrollTop === 0) {
-                setIsTop(true);
+            if (isMounted) {
+                const show = window.scrollY > 50;
+                if (isTop !== show) {
+                    setIsTop(show);
+                }
+                setIsTop(document.documentElement.scrollTop === 0 && document.body.scrollTop === 0);
             }
         }
         const _ = require('lodash');
-        document.addEventListener('scroll', _.throttle(handleScroll, 100))
+        document.addEventListener('scroll', _.throttle(handleScroll, 10));
         return () => {
-            document.removeEventListener('scroll', handleScroll)
+            document.removeEventListener('scroll', handleScroll);
+            isMounted = false;
         }
-    }, [])
+    }, [isTop])
 
     return(
         <div className={classNames(sidebar, color)}>

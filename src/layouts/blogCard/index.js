@@ -2,6 +2,7 @@ import * as React from "react";
 import classNames from "classnames";
 import {dateStyleFloat} from "../../stylesheets/media.module.css"
 import {dateStyle} from "../../stylesheets/page.module.css"
+import {GatsbyImage} from "gatsby-plugin-image";
 
 const card = {
     position: "relative",
@@ -18,16 +19,16 @@ const cardText = {
     paddingLeft: "20px",
     paddingRight: "20px",
 }
-const cardPic = {
+const imageStyle = {
     position: "relative",
     float: "right",
-    width: "400px",
+    maxWidth: "400px", maxHeight: "500px",
     paddingTop: "20px",
     paddingLeft: "25px",
     right: "10px",
 }
 
-const CardLayout = ({date, timeToRead, children}) => {
+const CardLayout = ({date, timeToRead, children, pic, picAlt}) => {
     return(
         <article style={card}>
             <div className={classNames(dateStyle, dateStyleFloat)}>
@@ -38,6 +39,9 @@ const CardLayout = ({date, timeToRead, children}) => {
                             <p>{timeToRead} minutes to read</p>
                         </div>
                     )
+                }
+                {(pic === undefined && picAlt === undefined) ? null :
+                    (<GatsbyImage style={imageStyle} image={pic} alt={picAlt}/>)
                 }
             </div>
             <div style={cardText}>

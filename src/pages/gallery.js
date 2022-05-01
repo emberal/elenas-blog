@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "../layouts/layout";
 import {galleryPageColor} from "../stylesheets/colors.module.css"
-import {graphql} from "gatsby";
+import {graphql, Link} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
 const image = { //TODO fix when rezising
@@ -18,16 +18,26 @@ const galleryStyle = {
 }
 
 const Gallery = ({data}) => {
-    return(//TODO positioning, titles, dates and links https://medium.com/@kripod/building-highly-performant-masonry-layouts-with-gatsby-js-54115acc3e72
+    return(//TODO positioning, titles, dates https://medium.com/@kripod/building-highly-performant-masonry-layouts-with-gatsby-js-54115acc3e72
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
             <div style={galleryStyle}>
                 {
-                    data.allContentfulAsset.nodes.map( node => (
+                    data.allContentfulBlogPost.nodes.map( node => ( //Iterates through blogposts
                         <div key={node.id}>
-                            <GatsbyImage style={image}
-                                image={getImage(node.gatsbyImageData)}
-                                alt={node.description}>
-                            </GatsbyImage>
+                            <Link to={"../blog/" + node.slug}>
+                                {
+                                    node.pictures.map( picture => ( //Iterates through pictures for each blogpost
+                                        <div key={picture.id}>
+                                            <GatsbyImage
+                                                style={image}
+                                                image={getImage(picture.gatsbyImageData)}
+                                                alt={picture.description}
+                                            />
+                                        </div>
+                                    ))
+                                }
+                            </Link>
+
                         </div>
                     ))
                 }
@@ -39,22 +49,22 @@ const Gallery = ({data}) => {
 
 export const query = graphql `
 query {
-  allContentfulAsset(sort: {fields: createdAt, order: DESC}) {
-    nodes {
-      gatsbyImageData
-      description
-      id
-    }
-  }
   allContentfulBlogPost(sort: {fields: createdAt, order: DESC}) {
     nodes {
       title
       createdAt(formatString: "Do MMMM YYYY, H:mm")
+      slug
       body {
         childMarkdownRemark {
           timeToRead
         }
       }
+      pictures {
+        gatsbyImageData
+        description
+        id
+      }
+      id
     }
   }
 }

@@ -1,8 +1,9 @@
 import * as React from "react";
-import Layout from "../../layouts/layout";
 import {graphql} from "gatsby";
-import {blogPageColor} from "../../stylesheets/colors.module.css"
+import {getImage} from "gatsby-plugin-image";
+import Layout from "../../layouts/layout";
 import MiniCard from "../../layouts/blogCard/miniCard";
+import {blogPageColor} from "../../stylesheets/colors.module.css"
 
 const Blog = ({data}) => {
     return (
@@ -22,8 +23,9 @@ const Blog = ({data}) => {
                                         __html: node.introduction.childMarkdownRemark.html,
                                         }}
                                     />
-                                    //TODO add pic
                                 }
+                                pic={getImage(node.pictures[0].gatsbyImageData)}
+                                picAlt={node.pictures[0].description}
                             />
                         </article>
                     ))
@@ -51,6 +53,10 @@ query {
         childMarkdownRemark {
           html
         }
+      }
+      pictures {
+        gatsbyImageData
+        description
       }
     }
   }

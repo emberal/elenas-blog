@@ -1,7 +1,7 @@
 import * as React from "react"
 import classNames from "classnames";
 import {graphql} from "gatsby";
-import {StaticImage} from "gatsby-plugin-image";
+import {getImage, StaticImage} from "gatsby-plugin-image";
 import Layout from "../layouts/layout";
 import MiniCard from "../layouts/blogCard/miniCard";
 import {homePageColor} from "../stylesheets/colors.module.css"
@@ -75,7 +75,8 @@ const IndexPage = ({data}) => {
                                              }}
                                         />
                                     }
-                                    //TODO add pic
+                                    pic={getImage(node.pictures[0].gatsbyImageData)}
+                                    picAlt={node.pictures[0].description}
                                 />
                             </article>
                         ))
@@ -104,6 +105,10 @@ query {
         childMarkdownRemark {
           html
         }
+      }
+      pictures {
+        gatsbyImageData
+        description
       }
     }
   }
