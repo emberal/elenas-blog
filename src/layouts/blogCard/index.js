@@ -32,7 +32,7 @@ const CardLayout = ({date, timeToRead, title, children, pic, picAlt}) => {
                     {(timeToRead === undefined && date === undefined) ? null :
                         (
                             <div>
-                                <span style={spanStyle}>Published: {date} &#128366; {timeToRead} minutes to read</span>
+                                <span style={spanStyle}>Published: {date} &#128214; {timeToRead} minutes to read</span>
                             </div>
                         )
                     }

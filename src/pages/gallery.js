@@ -1,43 +1,48 @@
 import * as React from "react";
-import Layout from "../layouts/layout";
-import {galleryPageColor} from "../stylesheets/colors.module.css"
 import {graphql, Link} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import Layout from "../layouts/layout";
+import {imageContainer} from "../stylesheets/page.module.css"
+import {galleryPageColor} from "../stylesheets/colors.module.css"
 
 const image = { //TODO fix when rezising
-    maxWidth: "40%",
-    marginRight: "60px",
-    marginBottom: "50px",
     position: "relative",
-    left: "7.5%",
     float: "left",
 }
-
 const galleryStyle = {
     overflow: "auto"
 }
+const dataStyle = {
+    paddingLeft: "10px",
+    width: "90%",
+    marginTop: 0,
+    marginBottom: 0,
+}
 
 const Gallery = ({data}) => {
-    return(//TODO positioning, titles, dates https://medium.com/@kripod/building-highly-performant-masonry-layouts-with-gatsby-js-54115acc3e72
+    return(//TODO positioning https://medium.com/@kripod/building-highly-performant-masonry-layouts-with-gatsby-js-54115acc3e72
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
             <div style={galleryStyle}>
                 {
                     data.allContentfulBlogPost.nodes.map( node => ( //Iterates through blogposts
                         <div key={node.id}>
-                            <Link to={"../blog/" + node.slug}>
-                                {
-                                    node.pictures.map( picture => ( //Iterates through pictures for each blogpost
-                                        <div key={picture.id}>
+                            {
+                                node.pictures.map( picture => ( //Iterates through pictures for each blogpost
+                                    <div className={imageContainer} key={picture.id}>
+                                        <Link to={"../blog/" + node.slug}>
                                             <GatsbyImage
                                                 style={image}
                                                 image={getImage(picture.gatsbyImageData)}
                                                 alt={picture.description}
                                             />
-                                        </div>
-                                    ))
-                                }
-                            </Link>
-
+                                            <h3 style={dataStyle}>{node.title}</h3>
+                                        </Link>
+                                        <p></p>
+                                        <p style={dataStyle}>Published: {node.createdAt}</p>
+                                        <p style={dataStyle}>{node.body.childMarkdownRemark.timeToRead} minutes to read</p>
+                                    </div>
+                                ))
+                            }
                         </div>
                     ))
                 }
