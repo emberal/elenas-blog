@@ -14,8 +14,9 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                host: 'https://www.gatsbyjs.com',
-                policy: [{userAgent: '*', allow: '/'}]
+                host: `https://elenasblogmaster.gatsbyjs.io/`,
+                policy: [{userAgent: '*', allow: '/'}],
+                output: "/robots.txt",
             }
         },
         {
