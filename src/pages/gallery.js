@@ -5,12 +5,18 @@ import Layout from "../layouts/layout";
 import {imageContainer} from "../stylesheets/page.module.css"
 import {galleryPageColor} from "../stylesheets/colors.module.css"
 
-const image = { //TODO fix when rezising
+const imageStyle = {
+    width: "fit-content", height: "fit-content",
+    display: "flex",
+    justifyContent: "center",
     position: "relative",
-    float: "left",
+    marginLeft: "auto", marginRight: "auto",
 }
-const galleryStyle = {
-    overflow: "auto"
+const galleryContainer = {
+    overflow: "auto",
+    display: "flex",
+    flexFlow: "row wrap",
+    justifyContent: "space-around",
 }
 const dataStyle = {
     paddingLeft: "10px",
@@ -20,9 +26,9 @@ const dataStyle = {
 }
 
 const Gallery = ({data}) => {
-    return(//TODO positioning https://medium.com/@kripod/building-highly-performant-masonry-layouts-with-gatsby-js-54115acc3e72
+    return( //TODO make all images from the same post in a swipeable container, with left and right buttons on the side
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
-            <div style={galleryStyle}>
+            <div style={galleryContainer}>
                 {
                     data.allContentfulBlogPost.nodes.map( node => ( //Iterates through blogposts
                         <div key={node.id}>
@@ -31,7 +37,7 @@ const Gallery = ({data}) => {
                                     <div className={imageContainer} key={picture.id}>
                                         <Link to={"../blog/" + node.slug}>
                                             <GatsbyImage
-                                                style={image}
+                                                style={imageStyle}
                                                 image={getImage(picture.gatsbyImageData)}
                                                 alt={picture.description}
                                             />

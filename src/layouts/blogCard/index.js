@@ -1,8 +1,8 @@
 import * as React from "react";
 import classNames from "classnames";
-import {dateStyleFloat, cardPicPos} from "../../stylesheets/media.module.css"
-import {dateStyle, cardImageStyle} from "../../stylesheets/page.module.css"
 import {GatsbyImage} from "gatsby-plugin-image";
+import {dateStyleFloat, cardPicPos, detailsFlow} from "../../stylesheets/media.module.css"
+import {dateStyle, cardImageStyle, detailsStyle} from "../../stylesheets/page.module.css"
 
 const card = {
     position: "relative",
@@ -12,15 +12,15 @@ const card = {
     border: "solid grey",
     borderRadius: "10px",
     marginBottom: "80px",
-    overflow: "auto", //Makes sure the pic is within the <div>
+    overflow: "auto",
 }
 const cardText = {
     paddingLeft: "20px",
     paddingRight: "20px",
 }
-const spanStyle = {
-    position: "relative",
-    paddingRight: "10px",
+const noMargin = {
+    marginTop: 0,
+    marginBottom: 0,
 }
 
 const CardLayout = ({date, timeToRead, title, children, pic, picAlt}) => {
@@ -31,8 +31,9 @@ const CardLayout = ({date, timeToRead, title, children, pic, picAlt}) => {
                 <div className={classNames(dateStyle, dateStyleFloat)}>
                     {(timeToRead === undefined && date === undefined) ? null :
                         (
-                            <div>
-                                <span style={spanStyle}>Published: {date} &#128214; {timeToRead} minutes to read</span>
+                            <div className={classNames(detailsStyle, detailsFlow)}>
+                                <p style={noMargin}>Published: {date} &#160;</p>
+                                <p style={noMargin}>&#128214; {timeToRead} minutes to read</p>
                             </div>
                         )
                     }

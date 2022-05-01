@@ -6,7 +6,7 @@ import {pageStyle, titleStyle} from "../stylesheets/page.module.css"
 import {pageStyleWidth, navLinksSmall, navLinksHide, titleStylePadding} from "../stylesheets/media.module.css"
 
 const paddingBottom = {
-    paddingBottom: "100px",
+    paddingBottom: "150px",
 }
 const navLinkText = {
     margin: "auto",
