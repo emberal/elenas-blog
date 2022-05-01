@@ -1,10 +1,10 @@
 import * as React from "react";
 import classNames from 'classnames';
-import {StaticImage} from "gatsby-plugin-image";
-import {sidebar, hidden, scrollBackUpButtonPos} from "../stylesheets/media.module.css";
-import {scrollBackUpButton} from "../stylesheets/sidebar.module.css"
-import {iconStyle} from "../stylesheets/page.module.css";
 import {useEffect, useState} from "react";
+import {StaticImage} from "gatsby-plugin-image";
+import {iconStyle} from "../stylesheets/page.module.css";
+import {scrollBackUpButton} from "../stylesheets/sidebar.module.css"
+import {sidebar, hidden, scrollBackUpButtonPos} from "../stylesheets/media.module.css";
 
 function scrollToTop() {
     document.body.scrollTop = 0; // For Safari
@@ -12,15 +12,19 @@ function scrollToTop() {
 }
 
 const Sidebar = ({color}) => {
-    const [isTop, setIsTop] = useState(false);
+    const [isTop, setIsTop] = useState(true);
     useEffect(() => {
         const handleScroll = () => {
-            const show = window.scrollY > 20;
+            const show = window.scrollY > 50;
             if (isTop !== show) {
                 setIsTop(show)
             }
+            if (document.documentElement.scrollTop === 0 && document.body.scrollTop === 0) {
+                setIsTop(true);
+            }
         }
-        document.addEventListener('scroll', handleScroll)
+        const _ = require('lodash');
+        document.addEventListener('scroll', _.throttle(handleScroll, 100))
         return () => {
             document.removeEventListener('scroll', handleScroll)
         }
@@ -30,8 +34,8 @@ const Sidebar = ({color}) => {
         <div className={classNames(sidebar, color)}>
             <button
                 className={(isTop) ?
-                    classNames(scrollBackUpButton, scrollBackUpButtonPos) :
-                    classNames(scrollBackUpButton, scrollBackUpButtonPos, hidden)}
+                    classNames(scrollBackUpButton, scrollBackUpButtonPos, hidden) :
+                    classNames(scrollBackUpButton, scrollBackUpButtonPos)}
                 onClick={scrollToTop} title={"Back to the top"}>
                 <StaticImage className={iconStyle} src={"../images/icons8-up-squared-48.png"} alt={"Arrow pointing up"}/>
                 <p className={hidden}>Scroll back to the top</p>
