@@ -19,7 +19,6 @@ const HeaderButton = ({buttonStyle, link, icon}) => {
         <div style={buttonBox}>
             <div className={headerButtonHide}>
                 <button type={"button"} className={buttonStyle} onClick={(e) => {
-                    {/*TODO add clicking animation onClick*/}
                     e.preventDefault();
                     navigate(link.link);
                 }}>

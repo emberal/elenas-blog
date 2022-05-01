@@ -1,6 +1,7 @@
 import * as React from "react";
 import Layout from "../layouts/layout";
 import {icons8Color} from "../stylesheets/colors.module.css"
+import {Helmet} from "react-helmet";
 
 const linksStyle = {
     position: "relative",
@@ -12,6 +13,9 @@ const Icons8 = () => {
         <Layout homePageColor={icons8Color} title={"Icons from icons8.com"}
                 children={
                     <div style={linksStyle}>
+                        <Helmet>
+                            <meta name="robots" content="noindex"/>
+                        </Helmet>
                         <p><a target="_blank" href="https://icons8.com/icon/83246/home-page">Home Page</a> icon by <a
                             target="_blank" href="https://icons8.com">Icons8</a></p>
                         <p><a target="_blank" href="https://icons8.com/icon/88166/photo-gallery">Photo Gallery</a> icon

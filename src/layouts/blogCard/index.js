@@ -1,8 +1,8 @@
 import * as React from "react";
 import classNames from "classnames";
 import {GatsbyImage} from "gatsby-plugin-image";
-import {dateStyleFloat, cardPicPos, detailsFlow} from "../../stylesheets/media.module.css"
-import {dateStyle, cardImageStyle, detailsStyle} from "../../stylesheets/page.module.css"
+import {dateStyleFloat, cardPicPos, detailsFlow} from "../../stylesheets/media.module.css";
+import {dateStyle, cardImageStyle, detailsStyle} from "../../stylesheets/page.module.css";
 
 const card = {
     position: "relative",

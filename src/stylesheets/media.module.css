@@ -43,6 +43,7 @@
 @media screen and (min-width: 820px) {
     .card-pic-pos {
         float: right;
+        margin-left: 25px;
     }
     .page-style-width {
         width: 75%;
