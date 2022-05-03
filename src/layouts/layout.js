@@ -4,10 +4,11 @@ import Header from "./header";
 import Sidebar from "./sidebar";
 import Page from "./page";
 import {Helmet} from "react-helmet";
+import "../stylesheets/root.css";
 
 const backgroundColor = {
     background: "#3D3D3D",
-    marginBottom: "-10px", //Makes sure the footer touches the bottom of the page
+    //marginBottom: "-10px", //Makes sure the footer touches the bottom of the page
 }
 
 const Layout = ({title, homePageColor, children, description}) => {
@@ -38,7 +39,6 @@ const Layout = ({title, homePageColor, children, description}) => {
                 <Header/>
             </div>
         </div>
-
     )
 }
 

@@ -9,9 +9,8 @@ const Card = ({title, date, body, pic, picAlt, timeToRead}) => {
             picAlt={picAlt}
             timeToRead={timeToRead}
             title={<h2>{title}</h2>}
-            children={<div>{body}</div>
-            }>
-        </CardLayout>
+            children={<div>{body}</div>}
+        />
     )
 }
 

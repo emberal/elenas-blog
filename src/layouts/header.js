@@ -24,7 +24,7 @@ const buttons = {
 }
 const linkStyle = {
     color: "white",
-    textDecoration: "none"
+    textDecoration: "none",
 }
 
 const Header = () => {

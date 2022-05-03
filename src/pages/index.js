@@ -35,12 +35,12 @@ const IndexPage = ({data}) => {
                                 alt={data.contentfulProfile.profilePicture.description}/>
                         </div>
                         <div style={textPosition} className="body"
-                         dangerouslySetInnerHTML={{
-                             __html: data.contentfulProfile.body.childMarkdownRemark.html
-                         }}/>
+                            dangerouslySetInnerHTML={{
+                                __html: data.contentfulProfile.body.childMarkdownRemark.html
+                            }}
+                        />
                     </div>
-                }>
-                </Card>
+                }/>
                 <div>
                     <h2 style={titleStyle}>Latest blogposts</h2>
                     {

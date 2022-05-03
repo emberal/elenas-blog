@@ -3,7 +3,7 @@ import {graphql} from "gatsby";
 import {getImage} from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
 import MiniCard from "../../layouts/blogCard/miniCard";
-import {blogPageColor} from "../../stylesheets/colors.module.css"
+import {blogPageColor} from "../../stylesheets/colors.module.css";
 
 const Blog = ({data}) => {
     return (

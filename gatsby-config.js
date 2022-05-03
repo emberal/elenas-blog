@@ -16,8 +16,15 @@ module.exports = {
             options: {
                 host: `https://elenasblogmaster.gatsbyjs.io/`,
                 policy: [{userAgent: '*', allow: '/'}],
+                sitemap: `https://elenasblogmaster.gatsbyjs.io/sitemap.xml`,
                 output: "/robots.txt",
             }
+        },
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                output: "/src/pages/sitemap",
+            },
         },
         {
           resolve: `gatsby-plugin-manifest`,

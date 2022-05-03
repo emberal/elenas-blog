@@ -25,7 +25,7 @@ const Sidebar = ({color}) => {
             }
         }
         const _ = require('lodash');
-        document.addEventListener('scroll', _.throttle(handleScroll, 10));
+        document.addEventListener('scroll', _.throttle(handleScroll, 100));
         return () => {
             document.removeEventListener('scroll', handleScroll);
             isMounted = false;

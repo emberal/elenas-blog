@@ -6,10 +6,11 @@ const ContactMe = () => {
     return(
         <Layout title={"Contact me"} homePageColor={contactMePageColor} children={
             <div>
-
+                {/*TODO?*/}
             </div>
-        }
-        description={"Contact Elena"}/> //TODO Better description
+            }
+            description={"Contact Elena"} //TODO Better description
+        />
     )
 }
 

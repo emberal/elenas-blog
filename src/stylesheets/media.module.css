@@ -44,6 +44,7 @@
     .card-pic-pos {
         float: right;
         margin-left: 25px;
+        right: 10px;
     }
     .page-style-width {
         width: 75%;

@@ -21,7 +21,7 @@ const HeaderButton = ({buttonStyle, link, icon}) => {
                 <button type={"button"} className={buttonStyle} onClick={(e) => {
                     e.preventDefault();
                     navigate(link.link);
-                }}>
+                    }}>
                     <span className={hidden}>{link.title}</span>
                     {icon}
                 </button>
@@ -29,7 +29,6 @@ const HeaderButton = ({buttonStyle, link, icon}) => {
                     <Link style={link.style} to={link.link}>{link.title}</Link>
                 </div>
             </div>
-
         </div>
     )
 }
