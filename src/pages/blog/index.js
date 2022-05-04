@@ -4,33 +4,39 @@ import {getImage} from "gatsby-plugin-image";
 import Layout from "../../layouts/layout";
 import MiniCard from "../../layouts/blogCard/miniCard";
 import {blogPageColor} from "../../stylesheets/colors.module.css";
+import {emptyPageStyle} from "../../stylesheets/page.module.css"
 
 const Blog = ({data}) => {
     return (
         <Layout homePageColor={blogPageColor} title={"Blog"} children={
-            <div>
-                {
-                    data.allContentfulBlogPost.nodes.map( node => (
-                        <article key={node.id}>
-                            <MiniCard
-                                title={node.title}
-                                date={node.createdAt}
-                                link={node.slug}
-                                timeToRead={node.body.childMarkdownRemark.timeToRead}
-                                intro={
-                                    <div className="introduction"
-                                        dangerouslySetInnerHTML={{
-                                        __html: node.introduction.childMarkdownRemark.html,
-                                        }}
+            (data.allContentfulBlogPost.nodes.length === 0) ?
+                <span className={emptyPageStyle}>There are currently no posts :(</span> :
+                (
+                    <div>
+                        {
+                            data.allContentfulBlogPost.nodes.map( node => (
+                                <article key={node.id}>
+                                    <MiniCard
+                                        title={node.title}
+                                        date={node.createdAt}
+                                        link={node.slug}
+                                        timeToRead={node.body.childMarkdownRemark.timeToRead}
+                                        intro={
+                                            <div className="introduction"
+                                                 dangerouslySetInnerHTML={{
+                                                     __html: node.introduction.childMarkdownRemark.html,
+                                                 }}
+                                            />
+                                        }
+                                        pic={getImage(node.pictures[0].gatsbyImageData)}
+                                        picAlt={node.pictures[0].description}
                                     />
-                                }
-                                pic={getImage(node.pictures[0].gatsbyImageData)}
-                                picAlt={node.pictures[0].description}
-                            />
-                        </article>
-                    ))
-                }
-            </div>
+                                </article>
+                            ))
+                        }
+                    </div>
+                )
+
         }
         description={"A foodblog by Elena with plenty of delicious meals"}/>
     );

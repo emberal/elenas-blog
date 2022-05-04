@@ -3,9 +3,10 @@ import {graphql, Link} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import classNames from "classnames";
 import Layout from "../layouts/layout";
-import {imageContainer, galleryContainer} from "../stylesheets/page.module.css";
+import {imageContainer, galleryContainer, emptyPageStyle, galleryDataStyle} from "../stylesheets/page.module.css";
 import {galleryPageColor} from "../stylesheets/colors.module.css";
 import {galleryGrid} from "../stylesheets/media.module.css";
+import BlogData from "../layouts/blogData";
 
 const imageStyle = {
     display: "flex",
@@ -13,18 +14,13 @@ const imageStyle = {
     position: "relative",
     marginLeft: "auto", marginRight: "auto",
 }
-const dataStyle = {
-    paddingLeft: "10px",
-    width: "90%",
-    marginTop: 0,
-    marginBottom: 0,
-}
 
 const Gallery = ({data}) => {
+    const blogPost = data.allContentfulBlogPost;
 
     let pics = [];
-    const blogPost = data.allContentfulBlogPost;
-    for (let i = 0; i < blogPost.totalCount; i++) {
+    let i = 0;
+    while (blogPost.nodes[i] !== undefined) {
         let j = 0;
         while (blogPost.nodes[i].pictures[j] !== undefined) {
             const pic = {
@@ -39,31 +35,36 @@ const Gallery = ({data}) => {
             pics.push(pic);
             j++;
         }
-
+        i++;
     }
 
     return( //TODO make all images from the same post in a swipeable container, with left and right buttons on the side
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
-            <div className={classNames(galleryContainer, galleryGrid)}>
-                {
-                    pics.map( pic => ( //Iterates through pictures for each blogpost
-                        <div className={imageContainer} key={pic.picId}>
-                            <Link to={"../blog/" + pic.slug}>
-                                <GatsbyImage
-                                    style={imageStyle}
-                                    image={getImage(pic.pic)}
-                                    alt={pic.picAlt}
-                                />
-                                <h3 style={dataStyle}>{pic.title}</h3>
-                            </Link>
-                            <p></p>
-                            <p style={dataStyle}>Published: {pic.createdAt}</p>
-                            <p style={dataStyle}>{pic.timeToRead} minutes to read</p>
-                            <p></p>
-                        </div>
-                    ))
-                }
-            </div>
+            (pics.length === 0) ? <span className={emptyPageStyle}>There are currently no posts with pictures :(</span> : (
+                    <div className={classNames(galleryContainer, galleryGrid)}>
+                        {
+                            pics.map( pic => (
+                                <div className={imageContainer} key={pic.picId}>
+                                    <Link to={"../blog/" + pic.slug}>
+                                        <GatsbyImage
+                                            style={imageStyle}
+                                            image={getImage(pic.pic)}
+                                            alt={pic.picAlt}
+                                        />
+                                    </Link>
+                                    <div className={galleryDataStyle}>
+                                        <Link style={{color: "white"}} to={"../blog/" + pic.slug}>
+                                            <h3>{pic.title}</h3>
+                                        </Link>
+                                        <BlogData createdAt={pic.createdAt} timeToRead={pic.timeToRead}/>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                )
+
         }
         description={"A gallery of delicious food."}/> //TODO better description
     )
@@ -72,7 +73,6 @@ const Gallery = ({data}) => {
 export const query = graphql `
 query {
   allContentfulBlogPost(sort: {fields: createdAt, order: DESC}) {
-    totalCount
     nodes {
       title
       createdAt(formatString: "Do MMMM YYYY, H:mm")

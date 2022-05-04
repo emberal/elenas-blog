@@ -3,6 +3,7 @@ import classNames from "classnames";
 import {GatsbyImage} from "gatsby-plugin-image";
 import {dateStyleFloat, cardPicPos, detailsFlow} from "../../stylesheets/media.module.css";
 import {dateStyle, cardImageStyle, detailsStyle} from "../../stylesheets/page.module.css";
+import BlogData from "../blogData";
 
 const card = {
     position: "relative",
@@ -18,10 +19,6 @@ const cardText = {
     paddingLeft: "20px",
     paddingRight: "20px",
 }
-const noMargin = {
-    marginTop: 0,
-    marginBottom: 0,
-}
 
 const CardLayout = ({date, timeToRead, title, children, pic, picAlt}) => {
     return(
@@ -30,12 +27,7 @@ const CardLayout = ({date, timeToRead, title, children, pic, picAlt}) => {
             <div className={dateStyleFloat}>
                 <div className={classNames(dateStyle, dateStyleFloat)}>
                     {(timeToRead === undefined && date === undefined) ? null :
-                        (
-                            <div className={classNames(detailsStyle, detailsFlow)}>
-                                <p style={noMargin}>Published: {date} &#160;</p>
-                                <p style={noMargin}>&#128214; {timeToRead} minutes to read</p>
-                            </div>
-                        )
+                        (<BlogData createdAt={date} timeToRead={timeToRead}/>)
                     }
                 </div>
                 <div style={{clear: "both"}}></div>

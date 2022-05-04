@@ -36,13 +36,18 @@
     margin-left: 25px;
     right: 10px;
 }
+.empty-page-style {
+    display: flex;
+    justify-content: center;
+}
 .image-container {
     max-width: 500px; max-height: 700px;
     border: solid grey;
     border-radius: 10px;
+    position: relative;
+    overflow: hidden;
 }
 .details-style {
-    position: relative;
     display: flex;
     padding-right: 10px;
 }
@@ -50,7 +55,21 @@
     overflow: auto;
     display: grid;
     grid-auto-rows: auto;
-    grid-gap: 1em;
     justify-content: center;
     padding-left: 2.5%; padding-right: 2.5%;
 }
+.gallery-data-style {
+    padding-left: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0; left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    color: white;
+    visibility: hidden;
+}
+.image-container:hover .gallery-data-style {
+    visibility: visible;
+}
+
+
