@@ -1,24 +1,17 @@
 import * as React from "react";
 import {graphql, Link} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import classNames from "classnames";
 import Layout from "../layouts/layout";
-import {imageContainer} from "../stylesheets/page.module.css"
-import {galleryPageColor} from "../stylesheets/colors.module.css"
+import {imageContainer, galleryContainer} from "../stylesheets/page.module.css";
+import {galleryPageColor} from "../stylesheets/colors.module.css";
+import {galleryGrid} from "../stylesheets/media.module.css";
 
 const imageStyle = {
     display: "flex",
     justifyContent: "center",
     position: "relative",
     marginLeft: "auto", marginRight: "auto",
-}
-const galleryContainer = {
-    overflow: "auto",
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    gridAutoRows: "auto",
-    gridGap: "1em",
-    justifyContent: "center",
-    paddingLeft: "2.5%", paddingRight: "2.5%",
 }
 const dataStyle = {
     paddingLeft: "10px",
@@ -51,7 +44,7 @@ const Gallery = ({data}) => {
 
     return( //TODO make all images from the same post in a swipeable container, with left and right buttons on the side
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
-            <div style={galleryContainer}>
+            <div className={classNames(galleryContainer, galleryGrid)}>
                 {
                     pics.map( pic => ( //Iterates through pictures for each blogpost
                         <div className={imageContainer} key={pic.picId}>

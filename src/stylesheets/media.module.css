@@ -12,6 +12,12 @@
     display: none;
 }
 
+@media screen and (min-width: 1080px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @media screen and (max-width: 819px) {
     .card-pic-pos {
         margin: auto;
@@ -37,6 +43,9 @@
     }
     .details-flow {
         flex-flow: row wrap;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -72,5 +81,8 @@
     }
     .details-flow {
         flex-flow: column wrap;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

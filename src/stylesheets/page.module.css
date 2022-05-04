@@ -46,3 +46,11 @@
     display: flex;
     padding-right: 10px;
 }
+.gallery-container {
+    overflow: auto;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-gap: 1em;
+    justify-content: center;
+    padding-left: 2.5%; padding-right: 2.5%;
+}
