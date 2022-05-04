@@ -3,10 +3,10 @@ import {graphql, Link} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import classNames from "classnames";
 import Layout from "../layouts/layout";
+import BlogData from "../layouts/blogData";
 import {imageContainer, galleryContainer, emptyPageStyle, galleryDataStyle} from "../stylesheets/page.module.css";
 import {galleryPageColor} from "../stylesheets/colors.module.css";
 import {galleryGrid} from "../stylesheets/media.module.css";
-import BlogData from "../layouts/blogData";
 
 const imageStyle = {
     display: "flex",
@@ -41,30 +41,30 @@ const Gallery = ({data}) => {
     return( //TODO make all images from the same post in a swipeable container, with left and right buttons on the side
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
             (pics.length === 0) ? <span className={emptyPageStyle}>There are currently no posts with pictures :(</span> : (
-                    <div className={classNames(galleryContainer, galleryGrid)}>
-                        {
-                            pics.map( pic => (
-                                <div className={imageContainer} key={pic.picId}>
-                                    <Link to={"../blog/" + pic.slug}>
-                                        <GatsbyImage
-                                            style={imageStyle}
-                                            image={getImage(pic.pic)}
-                                            alt={pic.picAlt}
-                                        />
+                <div className={classNames(galleryContainer, galleryGrid)}>
+                    {
+                        pics.map( pic => (
+                            <div className={imageContainer} key={pic.picId}>
+                                {/*TODO on touchscreens, zoom in on the pic and blogData, so it covers the screen*/}
+                                <Link to={"../blog/" + pic.slug}>
+                                    <GatsbyImage
+                                        style={imageStyle}
+                                        image={getImage(pic.pic)}
+                                        alt={pic.picAlt}
+                                    />
+                                </Link>
+                                <div className={galleryDataStyle}>
+                                    <Link style={{color: "white"}} to={"../blog/" + pic.slug}>
+                                        <h3>{pic.title}</h3>
                                     </Link>
-                                    <div className={galleryDataStyle}>
-                                        <Link style={{color: "white"}} to={"../blog/" + pic.slug}>
-                                            <h3>{pic.title}</h3>
-                                        </Link>
-                                        <BlogData createdAt={pic.createdAt} timeToRead={pic.timeToRead}/>
-                                        <p></p>
-                                    </div>
+                                    <BlogData createdAt={pic.createdAt} timeToRead={pic.timeToRead}/>
+                                    <p></p>
                                 </div>
-                            ))
-                        }
-                    </div>
-                )
-
+                            </div>
+                        ))
+                    }
+                </div>
+            )
         }
         description={"A gallery of delicious food."}/> //TODO better description
     )

@@ -5,6 +5,7 @@
     left: 2.5%;
     color: black;
     display: flex;
+    justify-content: space-around;
     list-style: none;
     padding-left: unset;
 }
