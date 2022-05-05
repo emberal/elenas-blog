@@ -31,7 +31,7 @@ const Gallery = ({data}) => {
                 slug: blogPost.nodes[i].slug,
                 createdAt: blogPost.nodes[i].createdAt,
                 timeToRead: blogPost.nodes[i].body.childMarkdownRemark.timeToRead,
-                pic: blogPost.nodes[i].pictures[j].gatsbyImageData,
+                img: blogPost.nodes[i].pictures[j].gatsbyImageData,
                 picAlt: blogPost.nodes[i].pictures[j].description,
                 picId: blogPost.nodes[i].pictures[j].id,
             }
@@ -41,13 +41,17 @@ const Gallery = ({data}) => {
         i++;
     }
 
-    Modal.setAppElement(document.getElementById('#___gatsby'));
+    Modal.setAppElement(document.getElementById('___gatsby'));
     const [modalIsOpen, setModalIsOpen] = React.useState(false);
-    function openModal() {
+    const [picObj, setPicObj] = React.useState(null);
+
+    function openModal(pic) {
         setModalIsOpen(true);
+        setPicObj(pic);
     }
     function closeModal() {
         setModalIsOpen(false);
+        setPicObj(null);
     }
 
     return( //TODO make all images from the same post in a swipeable container, with left and right buttons on the side
@@ -57,14 +61,13 @@ const Gallery = ({data}) => {
                     {
                         pics.map( pic => (
                             <div className={imageContainer} key={pic.picId}>
-                                {/*TODO on touchscreens, modal image*/}
                                 {
-                                    (isTouch) ? ( //Touch
+                                    (isTouch) ? ( //Touch screen
                                         <div>
                                             <GatsbyImage
-                                                onClick={openModal}
+                                                onClick={() => openModal(pic)}
                                                 style={imageStyle}
-                                                image={getImage(pic.pic)}
+                                                image={getImage(pic.img)}
                                                 alt={pic.picAlt}
                                             />
                                             <Modal
@@ -73,15 +76,21 @@ const Gallery = ({data}) => {
                                                 contentLabel={"Image"}
                                             >
                                                 <div onClick={closeModal}>
-                                                    <GatsbyImage alt={pic.picAlt} image={getImage(pic.pic)}/>
+                                                    {(picObj === null) ? null : //Set styles for modal
+                                                        (
+                                                            <>
+                                                                <GatsbyImage alt={picObj.picAlt} image={getImage(picObj.img)}/>
+                                                            </>
+                                                        )
+                                                    }
                                                 </div>
                                             </Modal>
                                         </div>
-                                    ) : ( //Not touch
+                                    ) : ( //Not touch screen
                                         <Link to={"../blog/" + pic.slug}>
                                             <GatsbyImage
                                                 style={imageStyle}
-                                                image={getImage(pic.pic)}
+                                                image={getImage(pic.img)}
                                                 alt={pic.picAlt}
                                             />
                                         </Link>
