@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as Modal from "react-modal";
 import {graphql, Link} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import classNames from "classnames";
@@ -16,6 +17,8 @@ const imageStyle = {
 }
 
 const Gallery = ({data}) => {
+
+    const isTouch = 'onTouchStart' in window || navigator.maxTouchPoints > 0;
     const blogPost = data.allContentfulBlogPost;
 
     let pics = [];
@@ -38,6 +41,15 @@ const Gallery = ({data}) => {
         i++;
     }
 
+    Modal.setAppElement(document.getElementById('#___gatsby'));
+    const [modalIsOpen, setModalIsOpen] = React.useState(false);
+    function openModal() {
+        setModalIsOpen(true);
+    }
+    function closeModal() {
+        setModalIsOpen(false);
+    }
+
     return( //TODO make all images from the same post in a swipeable container, with left and right buttons on the side
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
             (pics.length === 0) ? <span className={emptyPageStyle}>There are currently no posts with pictures :(</span> : (
@@ -45,14 +57,36 @@ const Gallery = ({data}) => {
                     {
                         pics.map( pic => (
                             <div className={imageContainer} key={pic.picId}>
-                                {/*TODO on touchscreens, zoom in on the pic and blogData, so it covers the screen*/}
-                                <Link to={"../blog/" + pic.slug}>
-                                    <GatsbyImage
-                                        style={imageStyle}
-                                        image={getImage(pic.pic)}
-                                        alt={pic.picAlt}
-                                    />
-                                </Link>
+                                {/*TODO on touchscreens, modal image*/}
+                                {
+                                    (isTouch) ? ( //Touch
+                                        <div>
+                                            <GatsbyImage
+                                                onClick={openModal}
+                                                style={imageStyle}
+                                                image={getImage(pic.pic)}
+                                                alt={pic.picAlt}
+                                            />
+                                            <Modal
+                                                isOpen={modalIsOpen}
+                                                onRequestClose={closeModal}
+                                                contentLabel={"Image"}
+                                            >
+                                                <div onClick={closeModal}>
+                                                    <GatsbyImage alt={pic.picAlt} image={getImage(pic.pic)}/>
+                                                </div>
+                                            </Modal>
+                                        </div>
+                                    ) : ( //Not touch
+                                        <Link to={"../blog/" + pic.slug}>
+                                            <GatsbyImage
+                                                style={imageStyle}
+                                                image={getImage(pic.pic)}
+                                                alt={pic.picAlt}
+                                            />
+                                        </Link>
+                                    )
+                                }
                                 <div className={galleryDataStyle}>
                                     <Link style={{color: "white"}} to={"../blog/" + pic.slug}>
                                         <h3>{pic.title}</h3>

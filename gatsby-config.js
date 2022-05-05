@@ -41,6 +41,7 @@ module.exports = {
         "gatsby-plugin-image", //GatsbyImage
         "gatsby-plugin-sharp",
         "gatsby-plugin-react-helmet", //Working with head
+        "react-modal",
         {
           resolve: `gatsby-transformer-remark`, //Transforming .md files
           options: {
