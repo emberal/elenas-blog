@@ -1,6 +1,5 @@
 import * as React from "react";
 import classNames from 'classnames';
-import {useEffect, useState} from "react";
 import {StaticImage} from "gatsby-plugin-image";
 import {iconStyle} from "../stylesheets/page.module.css";
 import {scrollBackUpButton} from "../stylesheets/sidebar.module.css"
@@ -12,8 +11,8 @@ function scrollToTop() {
 }
 
 const Sidebar = ({color}) => {
-    const [isTop, setIsTop] = useState(true);
-    useEffect(() => {
+    const [isTop, setIsTop] = React.useState(true);
+    React.useEffect(() => {
         let isMounted = true;
         const handleScroll = () => {
             if (isMounted) {

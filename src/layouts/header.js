@@ -1,11 +1,10 @@
 import * as React from "react";
-import HeaderButton from "./headerButton";
-import {Link} from "gatsby";
+import {Link, navigate} from "gatsby";
 import {StaticImage} from "gatsby-plugin-image";
 import classNames from "classnames";
 import {homePageColor, galleryPageColor, blogPageColor, contactMePageColor} from "../stylesheets/colors.module.css"
 import {buttonStyle, headline} from "../stylesheets/header.module.css"
-import {headlinePos} from "../stylesheets/media.module.css"
+import {headerButtonHide, headlinePos, hidden} from "../stylesheets/media.module.css"
 import {iconStyle} from "../stylesheets/page.module.css"
 
 const header = {
@@ -25,6 +24,17 @@ const buttons = {
 const linkStyle = {
     color: "white",
     textDecoration: "none",
+}
+const buttonBox = {
+    position: "relative",
+    float: "right",
+    height: "fit-content", minWidth: "100px",
+    marginTop: "5px",
+}
+const buttonText = {
+    color: "white",
+    fontSize: "large",
+    textAlign: "center",
 }
 
 const Header = () => {
@@ -75,6 +85,25 @@ const Header = () => {
                 />
             </nav>
         </header>
+    )
+}
+
+export const HeaderButton = ({buttonStyle, link, icon}) => {
+    return(
+        <div style={buttonBox}>
+            <div className={headerButtonHide}>
+                <button type={"button"} className={buttonStyle} onClick={(e) => {
+                    e.preventDefault();
+                    navigate(link.link);
+                }}>
+                    <span className={hidden}>{link.title}</span>
+                    {icon}
+                </button>
+                <div style={buttonText}>
+                    <Link style={link.style} to={link.link}>{link.title}</Link>
+                </div>
+            </div>
+        </div>
     )
 }
 

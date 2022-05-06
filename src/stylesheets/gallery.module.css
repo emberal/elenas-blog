@@ -1,0 +1,65 @@
+.image-container {
+    max-width: 500px; max-height: 700px;
+    border: solid grey;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.gallery-container {
+    overflow: auto;
+    display: grid;
+    grid-auto-rows: auto;
+    justify-content: center;
+    padding-left: 2.5%; padding-right: 2.5%;
+    margin-bottom: 25px;
+}
+.gallery-data-style {
+    padding-left: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: -100px;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    color: white;
+    visibility: hidden;
+}
+/*Modal classes*/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0; right: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.content {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    top: 80px;
+    left: 20px; right: 20px;
+    bottom: 40px;
+    background-color: white;
+    border: solid grey;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.ReactModal__Body--open {
+    overflow: hidden;
+}
+/*End modal classes*/
+.gallery-overlay-data-style {
+    overflow: hidden;
+    padding-left: 2.5%;
+    width: 97.5%;
+}
+
+/*Only for devices using a mouse*/
+@media (hover: hover) {
+    .image-container:hover .gallery-data-style {
+        visibility: visible;
+        transition: linear 0.2s;
+        bottom: 0;
+    }
+}
