@@ -23,7 +23,7 @@ const closeButtonStyle = {
 
 const Gallery = ({data}) => {
 
-    const isTouch = (typeof window !== "undefined") ? 'onTouchStart' in window || navigator.maxTouchPoints > 0 : navigator.maxTouchPoints > 0;
+    const isTouch = (typeof window !== "undefined") ? 'onTouchStart' in window || navigator.maxTouchPoints > 0 : false;
     const blogPost = data.allContentfulBlogPost;
 
     let pics = [];
