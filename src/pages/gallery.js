@@ -1,19 +1,24 @@
 import * as React from "react";
 import * as Modal from "react-modal";
 import {graphql, Link} from "gatsby";
-import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import {GatsbyImage, getImage, StaticImage} from "gatsby-plugin-image";
 import classNames from "classnames";
 import Layout from "../layouts/layout";
 import BlogData from "../layouts/blogData";
-import {imageContainer, galleryContainer, emptyPageStyle, galleryDataStyle} from "../stylesheets/page.module.css";
+import {emptyPageStyle} from "../stylesheets/page.module.css";
+import {imageContainer, galleryContainer, galleryDataStyle, galleryOverlayDataStyle, overlay, content, ReactModal__BodyOpen} from "../stylesheets/gallery.module.css"
 import {galleryPageColor} from "../stylesheets/colors.module.css";
 import {galleryGrid} from "../stylesheets/media.module.css";
 
 const imageStyle = {
-    display: "flex",
-    justifyContent: "center",
-    position: "relative",
+    width: "100%",
     marginLeft: "auto", marginRight: "auto",
+}
+const closeButtonStyle = {
+    position: "absolute",
+    right: 0,
+    cursor: "pointer",
+    zIndex: "99",
 }
 
 const Gallery = ({data}) => {
@@ -32,8 +37,8 @@ const Gallery = ({data}) => {
                 createdAt: blogPost.nodes[i].createdAt,
                 timeToRead: blogPost.nodes[i].body.childMarkdownRemark.timeToRead,
                 img: blogPost.nodes[i].pictures[j].gatsbyImageData,
-                picAlt: blogPost.nodes[i].pictures[j].description,
-                picId: blogPost.nodes[i].pictures[j].id,
+                imgAlt: blogPost.nodes[i].pictures[j].description,
+                id: blogPost.nodes[i].pictures[j].id,
             }
             pics.push(pic);
             j++;
@@ -54,33 +59,51 @@ const Gallery = ({data}) => {
         setPicObj(null);
     }
 
-    return( //TODO make all images from the same post in a swipeable container, with left and right buttons on the side
+    return( //TODO Keyboard listeners for onClick
         <Layout title={"Gallery"} homePageColor={galleryPageColor} children={
             (pics.length === 0) ? <span className={emptyPageStyle}>There are currently no posts with pictures :(</span> : (
                 <div className={classNames(galleryContainer, galleryGrid)}>
                     {
                         pics.map( pic => (
-                            <div className={imageContainer} key={pic.picId}>
+                            <div className={imageContainer} key={pic.id}>
                                 {
                                     (isTouch) ? ( //Touch screen
                                         <div>
                                             <GatsbyImage
+                                                role={"img"}
                                                 onClick={() => openModal(pic)}
                                                 style={imageStyle}
                                                 image={getImage(pic.img)}
-                                                alt={pic.picAlt}
+                                                alt={pic.imgAlt}
                                             />
                                             <Modal
                                                 isOpen={modalIsOpen}
                                                 onRequestClose={closeModal}
                                                 contentLabel={"Image"}
-                                            >
-                                                <div onClick={closeModal}>
-                                                    {(picObj === null) ? null : //Set styles for modal
+                                                className={content}
+                                                overlayClassName={overlay}
+                                                shouldCloseOnOverlayClick={true}
+                                                shouldCloseOnEsc={true}
+                                                bodyOpenClassName={ReactModal__BodyOpen}>
+                                                <div>
+                                                    {(picObj === null) ? null :
                                                         (
-                                                            <>
-                                                                <GatsbyImage alt={picObj.picAlt} image={getImage(picObj.img)}/>
-                                                            </>
+                                                            <div>
+                                                                <StaticImage
+                                                                    role={"img"}
+                                                                    style={closeButtonStyle}
+                                                                    onClick={closeModal}
+                                                                    src={"../images/icons8-close-window-48.png"}
+                                                                    alt={"Close modal button"}/>
+                                                                <GatsbyImage style={imageStyle} alt={picObj.imgAlt} image={getImage(picObj.img)}/>
+                                                                <div className={galleryOverlayDataStyle}>
+                                                                    <Link to={"../blog/" + picObj.slug}>
+                                                                        <h3>{picObj.title}</h3>
+                                                                    </Link>
+                                                                    <BlogData createdAt={picObj.createdAt} timeToRead={picObj.timeToRead}/>
+                                                                    <p></p>
+                                                                </div>
+                                                            </div>
                                                         )
                                                     }
                                                 </div>
@@ -91,7 +114,7 @@ const Gallery = ({data}) => {
                                             <GatsbyImage
                                                 style={imageStyle}
                                                 image={getImage(pic.img)}
-                                                alt={pic.picAlt}
+                                                alt={pic.imgAlt}
                                             />
                                         </Link>
                                     )
