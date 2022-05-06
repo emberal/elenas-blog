@@ -23,7 +23,8 @@ const closeButtonStyle = {
 
 const Gallery = ({data}) => {
 
-    const isTouch = (typeof window !== "undefined") ? 'onTouchStart' in window || navigator.maxTouchPoints > 0 : false;
+    const isTouch = (typeof window !== "undefined" || typeof navigator !== "undefined") ?
+        'onTouchStart' in window || navigator.maxTouchPoints > 0 : false;
     const blogPost = data.allContentfulBlogPost;
 
     let pics = [];
@@ -46,7 +47,9 @@ const Gallery = ({data}) => {
         i++;
     }
 
-    Modal.setAppElement(document.getElementById('___gatsby'));
+    if (typeof document !== "undefined") {
+        Modal.setAppElement(document.getElementById('___gatsby'));
+    }
     const [modalIsOpen, setModalIsOpen] = React.useState(false);
     const [picObj, setPicObj] = React.useState(null);
 
