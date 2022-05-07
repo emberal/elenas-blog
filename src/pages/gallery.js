@@ -6,9 +6,9 @@ import classNames from "classnames";
 import Layout from "../layouts/layout";
 import BlogData from "../layouts/blogData";
 import {emptyPageStyle} from "../stylesheets/page.module.css";
-import {imageContainer, galleryContainer, galleryDataStyle, galleryOverlayDataStyle, overlay, content, ReactModal__BodyOpen} from "../stylesheets/gallery.module.css"
+import {imageContainer, galleryContainer, galleryDataStyle, galleryOverlayDataStyle, overlay, content, ReactModal__BodyOpen, galleryGrid} from "../stylesheets/gallery.module.css"
 import {galleryPageColor} from "../stylesheets/colors.module.css";
-import {galleryGrid} from "../stylesheets/media.module.css";
+import {hidden} from "../stylesheets/screen.module.css";
 
 const imageStyle = {
     width: "100%",
@@ -19,6 +19,8 @@ const closeButtonStyle = {
     right: 0,
     cursor: "pointer",
     zIndex: "99",
+    border: "none",
+    background: "rgba(0, 0, 0, 0)",
 }
 
 const Gallery = ({data}) => {
@@ -91,12 +93,15 @@ const Gallery = ({data}) => {
                                                 {(picObj === null) ? null :
                                                     (
                                                         <>
-                                                            <StaticImage
-                                                                role={"img"}
-                                                                style={closeButtonStyle}
-                                                                onClick={closeModal}
-                                                                src={"../images/icons8-close-window-48.png"}
-                                                                alt={"Close modal button"}/>
+                                                            <button style={closeButtonStyle}>
+                                                                <StaticImage
+                                                                    role={"img"}
+                                                                    onClick={closeModal}
+                                                                    src={"../images/icons8-close-window-48.png"}
+                                                                    alt={"Close modal button"}/>
+                                                                <span className={hidden}>Close window</span>
+                                                            </button>
+
                                                             <GatsbyImage style={imageStyle} alt={picObj.imgAlt}
                                                                          image={getImage(picObj.img)}/>
                                                             <div className={galleryOverlayDataStyle}>

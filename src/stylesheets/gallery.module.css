@@ -63,3 +63,24 @@
         bottom: 0;
     }
 }
+
+@media screen and (max-width: 1600px) {
+    @media screen and (max-width: 1200px) {
+        .gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 0.5em;
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        .gallery-grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1em;
+        }
+    }
+}
+@media screen and (min-width: 1600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 1em;
+    }
+}

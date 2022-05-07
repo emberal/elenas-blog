@@ -3,7 +3,7 @@ import classNames from "classnames";
 import {Link} from "gatsby";
 import Footer from "./footer";
 import {pageStyle, titleStyle} from "../stylesheets/page.module.css"
-import {pageStyleWidth, navLinksSmall, navLinksHide, titleStylePadding} from "../stylesheets/media.module.css"
+import {pageStyleWidth, navLinksHide, titleStylePadding, navLinksSmall} from "../stylesheets/screen.module.css"
 
 const paddingBottom = {
     paddingBottom: "150px",

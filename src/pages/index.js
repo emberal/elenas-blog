@@ -6,7 +6,7 @@ import Layout from "../layouts/layout";
 import MiniCard from "../layouts/blogCard/miniCard";
 import Card from "../layouts/blogCard/card";
 import {homePageColor} from "../stylesheets/colors.module.css"
-import {cardPicPos} from "../stylesheets/media.module.css";
+import {cardPicPos} from "../stylesheets/screen.module.css";
 import {aboutMePic} from "../stylesheets/page.module.css"
 
 const aboutMe = {

@@ -40,10 +40,6 @@
     .details-flow {
         flex-flow: row wrap;
     }
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 0.5em;
-    }
 }
 
 @media screen and (min-width: 820px){
@@ -78,17 +74,5 @@
     }
     .details-flow {
         flex-flow: column wrap;
-    }
-    @media screen and (max-width: 1600px) {
-        .gallery-grid {
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 1em;
-        }
-    }
-    @media screen and (min-width: 1600px) {
-        .gallery-grid {
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 1em;
-        }
     }
 }

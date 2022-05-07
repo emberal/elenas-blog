@@ -1,7 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
 import {GatsbyImage} from "gatsby-plugin-image";
-import {dateStyleFloat, cardPicPos} from "../../stylesheets/media.module.css";
+import {dateStyleFloat, cardPicPos} from "../../stylesheets/screen.module.css";
 import {dateStyle, cardImageStyle} from "../../stylesheets/page.module.css";
 import BlogData from "../blogData";
 

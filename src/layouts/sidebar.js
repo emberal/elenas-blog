@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import {StaticImage} from "gatsby-plugin-image";
 import {iconStyle} from "../stylesheets/page.module.css";
 import {scrollBackUpButton} from "../stylesheets/sidebar.module.css"
-import {sidebar, hidden, scrollBackUpButtonPos} from "../stylesheets/media.module.css";
+import {sidebar, hidden, scrollBackUpButtonPos} from "../stylesheets/screen.module.css";
 
 function scrollToTop() {
     document.body.scrollTop = 0; // For Safari

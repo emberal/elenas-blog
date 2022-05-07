@@ -4,7 +4,7 @@ import {StaticImage} from "gatsby-plugin-image";
 import classNames from "classnames";
 import {homePageColor, galleryPageColor, blogPageColor, contactMePageColor} from "../stylesheets/colors.module.css"
 import {buttonStyle, headline} from "../stylesheets/header.module.css"
-import {headerButtonHide, headlinePos, hidden} from "../stylesheets/media.module.css"
+import {headerButtonHide, headlinePos, hidden} from "../stylesheets/screen.module.css"
 import {iconStyle} from "../stylesheets/page.module.css"
 
 const header = {

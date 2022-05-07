@@ -1,7 +1,7 @@
 import * as React from "react";
 import classNames from "classnames";
 import {detailsStyle} from "../stylesheets/page.module.css";
-import {detailsFlow} from "../stylesheets/media.module.css";
+import {detailsFlow} from "../stylesheets/screen.module.css";
 
 const noMargin = {
     marginTop: 0,
