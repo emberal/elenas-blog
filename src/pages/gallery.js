@@ -11,7 +11,8 @@ import {galleryPageColor} from "../stylesheets/colors.module.css";
 import {hidden} from "../stylesheets/screen.module.css";
 
 const imageStyle = {
-    width: "100%",
+    maxwidth: "100%", maxHeight: "100%",
+    width: "auto", height: "auto",
     marginLeft: "auto", marginRight: "auto",
 }
 const closeButtonStyle = {
@@ -70,7 +71,7 @@ const Gallery = ({data}) => {
                 <span className={emptyPageStyle}>There are currently no posts with pictures :(</span> : (
                     <div className={classNames(galleryContainer, galleryGrid)}>
                         {
-                            (isTouch) ? (
+                            (isTouch || document.documentElement.clientWidth <= 820) ? ( //If touchScreen or width is <= x
                                 pics.map(pic => ( //Touch screen
                                     <article className={imageContainer} key={pic.id}> {/*Should be <div> but images won't load after page reloads*/}
                                         <GatsbyImage
@@ -133,10 +134,9 @@ const Gallery = ({data}) => {
                                                 </Link>
                                                 <div className={galleryDataStyle}>
                                                     <Link style={{color: "white"}} to={"../blog/" + pic.slug}>
-                                                        <h3>{pic.title}</h3>
+                                                        <h3 style={{marginBottom: 0, marginTop: "5px"}}>{pic.title}</h3>
                                                     </Link>
                                                     <BlogData createdAt={pic.createdAt} timeToRead={pic.timeToRead}/>
-                                                    <p></p>
                                                 </div>
                                             </div>
                                         ))

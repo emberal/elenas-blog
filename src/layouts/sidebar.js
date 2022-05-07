@@ -18,7 +18,7 @@ const Sidebar = ({color}) => {
             if (isMounted) {
                 const show = window.scrollY > 50;
                 if (isTop !== show) {
-                    setIsTop(show);
+                    //setIsTop(show);
                 }
                 setIsTop(document.documentElement.scrollTop === 0 && document.body.scrollTop === 0);
             }

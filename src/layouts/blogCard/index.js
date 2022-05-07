@@ -7,12 +7,13 @@ import BlogData from "../blogData";
 
 const card = {
     position: "relative",
-    left: "2.5%",
-    width: "95%", height: "fit-content",
+    margin: "auto",
+    width: "95%",
+    height: "fit-content",
     paddingBottom: "10px",
     border: "solid grey",
     borderRadius: "10px",
-    marginBottom: "80px",
+    marginBottom: "25px",
     overflow: "auto",
 }
 const cardText = {

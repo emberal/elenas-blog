@@ -1,5 +1,5 @@
 .image-container {
-    max-width: 500px; max-height: 700px;
+    max-width: 350px; max-height: 350px;
     border: solid grey;
     border-radius: 10px;
     position: relative;
@@ -8,7 +8,6 @@
 .gallery-container {
     overflow: auto;
     display: grid;
-    grid-auto-rows: auto;
     justify-content: center;
     padding-left: 2.5%; padding-right: 2.5%;
     margin-bottom: 25px;
