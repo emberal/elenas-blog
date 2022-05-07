@@ -71,7 +71,7 @@ const Gallery = ({data}) => {
                 <span className={emptyPageStyle}>There are currently no posts with pictures :(</span> : (
                     <div className={classNames(galleryContainer, galleryGrid)}>
                         {
-                            (isTouch || (typeof document !== "undefined") ? document.documentElement.clientWidth : null <= 820) ? ( //If touchScreen or width is <= x
+                            (isTouch || (typeof document !== "undefined") ? document.documentElement.clientWidth <= 820 : false) ? ( //If touchScreen or width is <= x
                                 pics.map(pic => ( //Touch screen
                                     <article className={imageContainer} key={pic.id}> {/*Should be <div> but images won't load after page reloads*/}
                                         <GatsbyImage
