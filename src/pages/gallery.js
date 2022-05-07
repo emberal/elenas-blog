@@ -69,6 +69,7 @@ const Gallery = ({data}) => {
                     {
                         pics.map( pic => (
                             <div className={imageContainer} key={pic.id}>
+                                {console.log(pic)}
                                 {
                                     (isTouch) ? ( //Touch screen
                                         <div>
