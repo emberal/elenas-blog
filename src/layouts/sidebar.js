@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from 'classnames';
-import {StaticImage} from "gatsby-plugin-image";
+import {ArrowUp} from "react-feather";
 import {iconStyle} from "../stylesheets/page.module.css";
 import {scrollBackUpButton} from "../stylesheets/sidebar.module.css"
 import {sidebar, hidden, scrollBackUpButtonPos} from "../stylesheets/screen.module.css";
@@ -16,11 +16,10 @@ const Sidebar = ({color}) => {
         let isMounted = true;
         const handleScroll = () => {
             if (isMounted) {
-                const show = window.scrollY > 50;
+                const show = window.scrollY < 100;
                 if (isTop !== show) {
-                    //setIsTop(show);
+                    setIsTop(show);
                 }
-                setIsTop(document.documentElement.scrollTop === 0 && document.body.scrollTop === 0);
             }
         }
         const _ = require('lodash');
@@ -38,7 +37,7 @@ const Sidebar = ({color}) => {
                     classNames(scrollBackUpButton, scrollBackUpButtonPos, hidden) :
                     classNames(scrollBackUpButton, scrollBackUpButtonPos)}
                 onClick={scrollToTop} title={"Back to the top"}>
-                <StaticImage className={iconStyle} src={"../images/icons8-up-squared-48.png"} alt={"Arrow pointing up"}/>
+                <ArrowUp className={iconStyle}/>
                 <p className={hidden}>Scroll back to the top</p>
             </button>
         </div>

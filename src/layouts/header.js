@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Link, navigate} from "gatsby";
-import {StaticImage} from "gatsby-plugin-image";
 import classNames from "classnames";
+import {Home, Image, AlignLeft, AtSign} from "react-feather";
 import {homePageColor, galleryPageColor, blogPageColor, contactMePageColor} from "../stylesheets/colors.module.css"
 import {buttonStyle, headline} from "../stylesheets/header.module.css"
 import {headerButtonHide, headlinePos, hidden} from "../stylesheets/screen.module.css"
@@ -42,33 +42,32 @@ const buttons = [
         link: "/contact-me",
         title: "Contact me",
         color: contactMePageColor,
-        icon: <StaticImage className={iconStyle} src={"../images/icons8-chat-48.png"} alt={"Chat icon"}/>
+        icon: <AtSign className={iconStyle}/>
     },
     {
         id: 1,
         link: "/blog",
         title: "Blog",
         color: blogPageColor,
-        icon: <StaticImage className={iconStyle} src={"../images/icons8-comments-48.png"} alt={"Comments icon"}/>
+        icon: <AlignLeft className={iconStyle}/>
     },
     {
         id: 2,
         link: "/gallery",
         title: "Gallery",
         color: galleryPageColor,
-        icon: <StaticImage className={iconStyle} src={"../images/icons8-photo-gallery-48.png"} alt={"Gallery icon"}/>
+        icon: <Image className={iconStyle}/>
     },
     {
         id: 3,
         link: "/",
         title: "Home",
         color: homePageColor,
-        icon: <StaticImage className={iconStyle} src={"../images/icons8-home-page-48.png"} alt={"Home-page icon"}/>
+        icon: <Home className={iconStyle}/>
     }
 ]
 
 const Header = () => {
-    const buttonClasses = classNames(buttonStyle);
     return (
         <header style={header}>
             <div className={classNames(headline, headlinePos)}>
@@ -80,7 +79,7 @@ const Header = () => {
                 buttons.map(button => (
                     <nav key={button.id} style={buttonsStyle}>
                         <HeaderButton
-                            buttonStyle={classNames(buttonClasses, button.color)}
+                            buttonStyle={classNames(buttonStyle, button.color)}
                             link={button.link}
                             linkTitle={button.title}
                             icon={button.icon}

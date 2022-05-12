@@ -42,6 +42,7 @@ module.exports = {
         "gatsby-plugin-sharp",
         "gatsby-plugin-react-helmet", //Working with head
         "react-modal",
+        "react-feather",
         {
           resolve: `gatsby-transformer-remark`, //Transforming .md files
           options: {

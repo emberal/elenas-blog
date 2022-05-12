@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as Modal from "react-modal";
 import {graphql, Link} from "gatsby";
-import {GatsbyImage, getImage, StaticImage} from "gatsby-plugin-image";
+import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import classNames from "classnames";
+import {X} from "react-feather";
 import Layout from "../layouts/layout";
 import BlogData from "../layouts/blogData";
 import {emptyPageStyle} from "../stylesheets/page.module.css";
@@ -22,6 +23,12 @@ const closeButtonStyle = {
     zIndex: "99",
     border: "none",
     background: "rgba(0, 0, 0, 0)",
+}
+const buttonStandard = {
+    border: "none",
+    color: "inherit",
+    backgroundColor: "transparent",
+    textDecoration: "none",
 }
 
 const Gallery = ({data}) => {
@@ -74,13 +81,13 @@ const Gallery = ({data}) => {
                             (isTouch || (typeof document !== "undefined") ? document.documentElement.clientWidth <= 820 : false) ? ( //If touchScreen or width is <= x
                                 pics.map(pic => ( //Touch screen
                                     <article className={imageContainer} key={pic.id}> {/*Should be <div> but images won't load after page reloads*/}
-                                        <GatsbyImage
-                                            role={"img"}
-                                            onClick={() => openModal(pic)}
-                                            style={imageStyle}
-                                            image={getImage(pic.img)}
-                                            alt={pic.imgAlt}
-                                        />
+                                        <button style={buttonStandard} onClick={() => openModal(pic)}>
+                                            <GatsbyImage
+                                                style={imageStyle}
+                                                image={getImage(pic.img)}
+                                                alt={pic.imgAlt}
+                                            />
+                                        </button>
                                         <Modal
                                             isOpen={modalIsOpen}
                                             onRequestClose={closeModal}
@@ -95,11 +102,7 @@ const Gallery = ({data}) => {
                                                     (
                                                         <>
                                                             <button style={closeButtonStyle}>
-                                                                <StaticImage
-                                                                    role={"img"}
-                                                                    onClick={closeModal}
-                                                                    src={"../images/icons8-close-window-48.png"}
-                                                                    alt={"Close modal button"}/>
+                                                                <X onClick={closeModal} style={{backgroundColor: "rgba(255, 255, 255, 0.2)"}}/>
                                                                 <span className={hidden}>Close window</span>
                                                             </button>
 

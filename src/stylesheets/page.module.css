@@ -24,6 +24,8 @@
 .icon-style {
     max-width: 28px;
     margin: auto;
+    padding-top: 3px;
+    color: white;
 }
 .card-title-style {
     position: relative;
